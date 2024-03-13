@@ -17,6 +17,7 @@
 		B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279452BA190BE00987C0A /* ProfilView.swift */; };
 		B7E279482BA190EF00987C0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279472BA190EF00987C0A /* User.swift */; };
 		B7E279772BA1A7DC00987C0A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279762BA1A7DC00987C0A /* test.swift */; };
+		B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2797D2BA1CEB600987C0A /* Navbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B7E279452BA190BE00987C0A /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 		B7E279472BA190EF00987C0A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7E279762BA1A7DC00987C0A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		B7E2797D2BA1CEB600987C0A /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 		B7E2791F2BA18E6F00987C0A = {
 			isa = PBXGroup;
 			children = (
+				B7E2797C2BA1CEA700987C0A /* Component */,
 				B7E279762BA1A7DC00987C0A /* test.swift */,
 				B7E2792D2BA18E6F00987C0A /* ContentView.swift */,
 				B7E2792B2BA18E6F00987C0A /* MyApp.swift */,
@@ -91,6 +94,14 @@
 				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B7E2797C2BA1CEA700987C0A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B7E2797D2BA1CEB600987C0A /* Navbar.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				B7E2793E2BA18FF000987C0A /* ListeJeuView.swift in Sources */,
 				B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */,
 				B7E279402BA1903600987C0A /* ListePosteView.swift in Sources */,
+				B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */,
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
