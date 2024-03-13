@@ -1,39 +1,50 @@
 import SwiftUI
 
 struct ListePosteView: View {
-    @StateObject private var viewModel = PosteViewModel()
+    @ObservedObject private var viewModel: PosteViewModel
+    @ObservedObject private var festivalUtils: FestivalUtils
+    init(){
+        viewModel = PosteViewModel()
+        festivalUtils = FestivalUtils()
+    }
 
     var body: some View {
         ScrollView {
         NavigationView {
             VStack {
-                Picker("Sélectionnez un festival", selection: $viewModel.selectedFestivalId) {
-                    ForEach(viewModel.festivals) { festival in
+                
+                Picker("Sélectionnez un festival", selection: $festivalUtils.selectedFestivalId) {
+                    ForEach(festivalUtils.festivals) { festival in
                         Text(festival.nom).tag(festival.idfestival as Int?)
                     }
                 }
-                .onAppear {
-                    viewModel.fetchFestivals()
-                }
                 .pickerStyle(MenuPickerStyle())
-                .onChange(of: viewModel.selectedFestivalId) { newValue in
-                    if let festivalId = newValue {
-                        viewModel.fetchPostes(forFestivalId: festivalId)
-                    }
+                .onChange(of: festivalUtils.selectedFestivalId) { newValue in
+                    viewModel.fetchPostes(forFestivalId: newValue)
+                    festivalUtils.setSelectedFestival()
                 }
-
-                            List(viewModel.postes) { poste in
-                                NavigationLink(destination: PosteDetailView(poste: poste)) {
-                                    Text(poste.nom)
-                                }
-                            }
-                            .navigationTitle("Postes")
+                
+                if(festivalUtils.selectedFestival!.valide){
+                    List(viewModel.postes) { poste in
+                        NavigationLink(destination: PosteDetailView(poste: poste)) {
+                            Text(poste.nom)
                         }
-                        .onAppear {
-                            viewModel.fetchPostes(forFestivalId: viewModel.selectedFestivalId ?? 0)
-                        }
+                    }
+                    .navigationTitle("Postes")
+                }else{
+                    VStack{
+                        Text("PAS OUVERT")
+                    }.onAppear{
+                        print("test",festivalUtils.selectedFestival!)
+                    }
                     
-
+                }
+            
+            }
+            .onAppear {
+                viewModel.fetchPostes(forFestivalId: festivalUtils.selectedFestivalId)
+            }
+    
             .navigationTitle("Festivals et Postes")
         }
         }

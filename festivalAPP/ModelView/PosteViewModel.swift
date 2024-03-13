@@ -1,52 +1,9 @@
 import Foundation
 
 class PosteViewModel: ObservableObject {
-    @Published var festivals: [Festival] = []
     @Published var postes: [Poste] = []
-    @Published var selectedFestivalId: Int?
     @Published var selectedPoste: Poste?
 
-    
-    init() {
-            fetchFestivals()
-        }
-
-    func fetchFestivals() {
-        guard let url = URL(string: "https://benevole-app-back.onrender.com/festival/all") else {
-            print("URL is not valid.")
-            return
-        }
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching festivals: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received.")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            decoder.dateDecodingStrategy = .formatted(dateFormatter)
-            
-            do {
-                
-                let decodedResponse = try decoder.decode(FestivalsResponse.self, from: data)
-                    DispatchQueue.main.async {
-                        self.festivals = decodedResponse.festivals
-                        print("Festivals fetched successfully.")
-                    }
-            } catch {
-                print("Decoding error: \(error.localizedDescription)")
-                print("Decoding error:", error)
-
-            }
-        }.resume()
-    }
 
     func fetchPostes(forFestivalId festivalId: Int) {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/poste-creneau/get-poste-by-festival/\(festivalId)") else {

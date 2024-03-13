@@ -14,10 +14,10 @@
             filePath = "ModelView/PosteViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "fetchPostes(forFestivalId:)"
-            landmarkType = "7">
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "PosteViewModel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,8 +30,8 @@
             filePath = "ModelView/PosteViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "fetchPostes(forFestivalId:)"
             landmarkType = "7">
          </BreakpointContent>

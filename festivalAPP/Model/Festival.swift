@@ -1,6 +1,6 @@
 import Foundation
 
-struct Festival: Codable, Identifiable {
+struct Festival: Codable, Identifiable, Equatable, Hashable {
     var id: Int {
             get { idfestival }
             set { idfestival = newValue }

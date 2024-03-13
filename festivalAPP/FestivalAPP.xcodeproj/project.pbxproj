@@ -24,6 +24,7 @@
 		B7E279482BA190EF00987C0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279472BA190EF00987C0A /* User.swift */; };
 		B7E279772BA1A7DC00987C0A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279762BA1A7DC00987C0A /* test.swift */; };
 		B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2797D2BA1CEB600987C0A /* Navbar.swift */; };
+		B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279862BA2487F00987C0A /* FestivalUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		B7E279472BA190EF00987C0A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B7E279762BA1A7DC00987C0A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		B7E2797D2BA1CEB600987C0A /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
+		B7E279862BA2487F00987C0A /* FestivalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		B7E2791F2BA18E6F00987C0A = {
 			isa = PBXGroup;
 			children = (
+				B7E279852BA2486C00987C0A /* Utils */,
 				B78FCD852BA21FDD00BA2159 /* ModelView */,
 				B7E2797C2BA1CEA700987C0A /* Component */,
 				B7E279762BA1A7DC00987C0A /* test.swift */,
@@ -128,6 +131,14 @@
 				B7E2797D2BA1CEB600987C0A /* Navbar.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B7E279852BA2486C00987C0A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B7E279862BA2487F00987C0A /* FestivalUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
+				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
 				B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */,
 				B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
