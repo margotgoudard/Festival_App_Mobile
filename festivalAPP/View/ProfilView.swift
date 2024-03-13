@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfilView: View {
-    var user: User
+   @State var user: User
     
     var body: some View {
         NavigationView {
@@ -26,70 +26,114 @@ struct ProfilView: View {
                 HStack {
                     Text("Nom:").bold()
                     Spacer()
-                    Text(user.nom)
+                    TextField("Nom", text: $user.nom)
                 }
                 
                 HStack {
                     Text("Prénom:").bold()
                     Spacer()
-                    Text(user.prenom)
+                    TextField("Prénom", text: $user.prenom)
                 }
                 
                 HStack {
                     Text("Pseudo:").bold()
                     Spacer()
-                    Text(user.pseudo)
+                    TextField("Pseudo", text: $user.pseudo)
                 }
                 
             }
             VStack(alignment: .leading, spacing: 20) {
                 
-                
                 HStack {
                     Text("Email:").bold()
                     Spacer()
-                    Text(user.mail)
+                    TextField("Mail", text: $user.mail)
                 }
                 
                 HStack {
                     Text("Téléphone:").bold()
                     Spacer()
-                    Text(user.tel)
+                    TextField("Téléphone", text: $user.tel)
                 }
                 
                 HStack {
                     Text("Association:").bold()
                     Spacer()
-                    Text(user.association)
+                    TextField("Association", text: $user.association)
                 }
                 
                 HStack {
                     Text("Jeu préféré:").bold()
                     Spacer()
-                    Text(user.jeu_prefere)
+                    TextField("Jeu Préféré", text: $user.jeu_prefere)
                 }
                 
                 HStack {
                     Text("Taille de T-Shirt:").bold()
                     Spacer()
-                    Text(user.taille_tshirt)
+                    TextField("Taille", text: $user.taille_tshirt)
                 }
                 
                 HStack {
                     Text("Hébergement:").bold()
                     Spacer()
-                    Text(user.hebergement)
+                    TextField("Hébergement", text: $user.hebergement)
                 }
                 
                 
                 HStack {
                     Text("Végétarien:").bold()
                     Spacer()
-                    Text(user.est_vegetarien ? "Oui" : "Non")
+                    Toggle(isOn: $user.est_vegetarien) {
+                            Text(user.est_vegetarien ? "Oui" : "Non")
+                    }
                 }
+                Button(action: {
+                    let updatedUser = User(association: user.association, est_vegetarien: user.est_vegetarien,  hebergement: user.hebergement, iduser: user.iduser, jeu_prefere: user.jeu_prefere, mail: user.mail, mdp: user.mdp, nom: user.nom, prenom: user.prenom, pseudo: user.pseudo, taille_tshirt: user.taille_tshirt, tel: user.tel)
+
+                    updateUserInfo(updatedUser)
+                            }) {
+                                Text("Enregistrer les modifications")
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
 
             }
             .padding()
         }
     }
+}
+
+func updateUserInfo(_ updatedUser: User) {
+    guard let jsonData = try? JSONEncoder().encode(updatedUser) else {
+        print("Erreur lors de l'encodage des données utilisateur en JSON")
+        return
+    }
+    
+    let urlString = "https://benevole-app-back.onrender.com/user/update-user"
+    guard let url = URL(string: urlString) else {
+        print("URL invalide")
+        return
+    }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    
+        request.httpBody = jsonData
+    
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print("Erreur lors de la requête HTTP: \(error)")
+            return
+        }
+        if let httpResponse = response as? HTTPURLResponse {
+            print("Code de statut HTTP de la réponse: \(httpResponse.statusCode)")
+        }
+    }
+    
+    task.resume()
 }
