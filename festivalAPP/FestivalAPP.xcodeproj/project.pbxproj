@@ -12,6 +12,7 @@
 		B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD862BA2202600BA2159 /* PosteViewModel.swift */; };
 		B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD882BA22D9700BA2159 /* FestivalResponse.swift */; };
 		B78FCD8B2BA2306700BA2159 /* PosteReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD8A2BA2306700BA2159 /* PosteReponse.swift */; };
+		B78FCD8D2BA23AFC00BA2159 /* PosteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
 		B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279392BA18FBB00987C0A /* InscrireView.swift */; };
@@ -31,6 +32,7 @@
 		B78FCD862BA2202600BA2159 /* PosteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteViewModel.swift; sourceTree = "<group>"; };
 		B78FCD882BA22D9700BA2159 /* FestivalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalResponse.swift; sourceTree = "<group>"; };
 		B78FCD8A2BA2306700BA2159 /* PosteReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteReponse.swift; sourceTree = "<group>"; };
+		B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteDetailView.swift; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				B7E279452BA190BE00987C0A /* ProfilView.swift */,
 				B7E2793B2BA18FD800987C0A /* ListeInscriptionView.swift */,
 				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
+				B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				B78FCD8B2BA2306700BA2159 /* PosteReponse.swift in Sources */,
 				B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */,
 				B7E279772BA1A7DC00987C0A /* test.swift in Sources */,
+				B78FCD8D2BA23AFC00BA2159 /* PosteDetailView.swift in Sources */,
 				B7E2793E2BA18FF000987C0A /* ListeJeuView.swift in Sources */,
 				B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */,
 				B7E279402BA1903600987C0A /* ListePosteView.swift in Sources */,

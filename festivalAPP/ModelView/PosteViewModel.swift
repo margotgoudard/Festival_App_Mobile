@@ -4,6 +4,8 @@ class PosteViewModel: ObservableObject {
     @Published var festivals: [Festival] = []
     @Published var postes: [Poste] = []
     @Published var selectedFestivalId: Int?
+    @Published var selectedPoste: Poste?
+
     
     init() {
             fetchFestivals()

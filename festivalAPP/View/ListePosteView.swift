@@ -21,12 +21,21 @@ struct ListePosteView: View {
                     }
                 }
 
-                List(viewModel.postes) { poste in
-                    Text(poste.nom)
-                }
+                NavigationView {
+                            List(viewModel.postes) { poste in
+                                NavigationLink(destination: PosteDetailView(poste: poste)) {
+                                    Text(poste.nom)
+                                }
+                            }
+                            .navigationTitle("Postes")
+                        }
+                        .onAppear {
+                            viewModel.fetchPostes(forFestivalId: viewModel.selectedFestivalId ?? 0)
+                        }
+                    }
             }
             .navigationTitle("Festivals et Postes")
-        }
+        
     }
     
 }
