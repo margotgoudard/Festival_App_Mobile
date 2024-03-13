@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+        
                 TextField("Email", text: $mail)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
@@ -40,8 +41,15 @@ struct ContentView: View {
                 NavigationLink(destination: InscrireView(), isActive: $isRegistering) { EmptyView() }
                 .buttonStyle(PrimaryButtonStyle())
             }
-            .padding()
-            .navigationTitle("Connexion")
+                .onTapGesture {
+                    isAuthenticated = false
+                    userData = nil
+                }
+                .onAppear {
+                    mail = ""
+                    password = ""
+                }
+
         }
     }
     
