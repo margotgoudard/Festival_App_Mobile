@@ -4,6 +4,7 @@ struct ListePosteView: View {
     @StateObject private var viewModel = PosteViewModel()
 
     var body: some View {
+        ScrollView {
         NavigationView {
             VStack {
                 Picker("Sélectionnez un festival", selection: $viewModel.selectedFestivalId) {
@@ -21,7 +22,6 @@ struct ListePosteView: View {
                     }
                 }
 
-                NavigationView {
                             List(viewModel.postes) { poste in
                                 NavigationLink(destination: PosteDetailView(poste: poste)) {
                                     Text(poste.nom)
@@ -32,10 +32,11 @@ struct ListePosteView: View {
                         .onAppear {
                             viewModel.fetchPostes(forFestivalId: viewModel.selectedFestivalId ?? 0)
                         }
-                    }
-            }
+                    
+
             .navigationTitle("Festivals et Postes")
-        
+        }
+        }
     }
     
 }
