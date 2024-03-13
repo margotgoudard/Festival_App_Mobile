@@ -16,6 +16,7 @@
 		B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279412BA1905300987C0A /* LoginResponse.swift */; };
 		B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279452BA190BE00987C0A /* ProfilView.swift */; };
 		B7E279482BA190EF00987C0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279472BA190EF00987C0A /* User.swift */; };
+		B7E279772BA1A7DC00987C0A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279762BA1A7DC00987C0A /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B7E279412BA1905300987C0A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		B7E279452BA190BE00987C0A /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 		B7E279472BA190EF00987C0A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B7E279762BA1A7DC00987C0A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 		B7E2791F2BA18E6F00987C0A = {
 			isa = PBXGroup;
 			children = (
+				B7E279762BA1A7DC00987C0A /* test.swift */,
 				B7E2792D2BA18E6F00987C0A /* ContentView.swift */,
 				B7E2792B2BA18E6F00987C0A /* MyApp.swift */,
 				B7E2794D2BA1962200987C0A /* View */,
@@ -161,6 +164,7 @@
 				B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
 				B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */,
+				B7E279772BA1A7DC00987C0A /* test.swift in Sources */,
 				B7E2793E2BA18FF000987C0A /* ListeJeuView.swift in Sources */,
 				B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */,
 				B7E279402BA1903600987C0A /* ListePosteView.swift in Sources */,
