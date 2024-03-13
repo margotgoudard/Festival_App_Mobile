@@ -1,8 +1,17 @@
-//
-//  Poste.swift
-//  FestivalAPP
-//
-//  Created by etud on 13/03/2024.
-//
+import SwiftUI
 
-import Foundation
+struct Poste: Codable, Identifiable {
+    var id: Int {
+            get { idposte }
+            set { idposte = newValue }
+        }
+    var idposte: Int
+    var nom: String
+    var description: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case idposte = "idposte"
+        case nom
+        case description
+    }
+}
