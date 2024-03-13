@@ -2,23 +2,24 @@ import SwiftUI
 
 struct ProfilView: View {
    @State var user: User
+   @State private var isMenuVisible = false
     
     var body: some View {
-        NavigationView {
-            Menu {
-                NavigationLink(destination: ListeJeuView()) {
-                    Text("Jeux")
-                }
-                NavigationLink(destination: ListePosteView()) {
-                    Text("Postes")
-                }
-                NavigationLink(destination: ListeInscriptionView()) {
-                    Text("Inscription")
-                }
-            } label: {
-                Label("Menu", systemImage: "line.horizontal.3")
-            }
-        }
+        HStack {
+                            Button(action: {
+                                isMenuVisible.toggle()
+                            }) {
+                                Image(systemName: "line.horizontal.3")
+                                    .font(.title)
+                                    .foregroundColor(.blue)
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                                    
+                        if isMenuVisible {
+                            Navbar()
+                        }
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Profil").font(.largeTitle).fontWeight(.bold)
