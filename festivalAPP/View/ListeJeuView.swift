@@ -15,8 +15,8 @@ struct ListeJeuView: View {
             VStack {
                 
                 if(festival.valide){
-                    List(viewModel.espaces) { espace in
-                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.idzonebenevole]!)) {
+                    List(viewModel.espaces, id: \.id) { espace in
+                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.id] ?? [])) {
                             Text(espace.nom)
                         }
                     }
