@@ -25,6 +25,12 @@
 		B7E279772BA1A7DC00987C0A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279762BA1A7DC00987C0A /* test.swift */; };
 		B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2797D2BA1CEB600987C0A /* Navbar.swift */; };
 		B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279862BA2487F00987C0A /* FestivalUtils.swift */; };
+		B7E279892BA2684E00987C0A /* JeuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279882BA2684E00987C0A /* JeuViewModel.swift */; };
+		B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2798A2BA268FE00987C0A /* Espace.swift */; };
+		B7E2798D2BA26B4700987C0A /* Jeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2798C2BA26B4700987C0A /* Jeu.swift */; };
+		B7E2798F2BA26D5400987C0A /* JeuEspaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2798E2BA26D5400987C0A /* JeuEspaceResponse.swift */; };
+		B7E279912BA26F2F00987C0A /* JeuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279902BA26F2F00987C0A /* JeuResponse.swift */; };
+		B7E279932BA270FD00987C0A /* EspaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279922BA270FD00987C0A /* EspaceDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +53,12 @@
 		B7E279762BA1A7DC00987C0A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		B7E2797D2BA1CEB600987C0A /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		B7E279862BA2487F00987C0A /* FestivalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalUtils.swift; sourceTree = "<group>"; };
+		B7E279882BA2684E00987C0A /* JeuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuViewModel.swift; sourceTree = "<group>"; };
+		B7E2798A2BA268FE00987C0A /* Espace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Espace.swift; sourceTree = "<group>"; };
+		B7E2798C2BA26B4700987C0A /* Jeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jeu.swift; sourceTree = "<group>"; };
+		B7E2798E2BA26D5400987C0A /* JeuEspaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuEspaceResponse.swift; sourceTree = "<group>"; };
+		B7E279902BA26F2F00987C0A /* JeuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JeuResponse.swift; sourceTree = "<group>"; };
+		B7E279922BA270FD00987C0A /* EspaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspaceDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				B78FCD862BA2202600BA2159 /* PosteViewModel.swift */,
+				B7E279882BA2684E00987C0A /* JeuViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -98,6 +111,8 @@
 				B7E279472BA190EF00987C0A /* User.swift */,
 				B78FCD802BA21E3900BA2159 /* Festival.swift */,
 				B78FCD822BA21E4300BA2159 /* Poste.swift */,
+				B7E2798A2BA268FE00987C0A /* Espace.swift */,
+				B7E2798C2BA26B4700987C0A /* Jeu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +123,8 @@
 				B7E279412BA1905300987C0A /* LoginResponse.swift */,
 				B78FCD882BA22D9700BA2159 /* FestivalResponse.swift */,
 				B78FCD8A2BA2306700BA2159 /* PosteReponse.swift */,
+				B7E2798E2BA26D5400987C0A /* JeuEspaceResponse.swift */,
+				B7E279902BA26F2F00987C0A /* JeuResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -121,6 +138,7 @@
 				B7E2793B2BA18FD800987C0A /* ListeInscriptionView.swift */,
 				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
 				B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */,
+				B7E279922BA270FD00987C0A /* EspaceDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,20 +229,26 @@
 			files = (
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
+				B7E279892BA2684E00987C0A /* JeuViewModel.swift in Sources */,
 				B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */,
+				B7E2798D2BA26B4700987C0A /* Jeu.swift in Sources */,
 				B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
 				B78FCD8B2BA2306700BA2159 /* PosteReponse.swift in Sources */,
 				B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */,
+				B7E279912BA26F2F00987C0A /* JeuResponse.swift in Sources */,
 				B7E279772BA1A7DC00987C0A /* test.swift in Sources */,
 				B78FCD8D2BA23AFC00BA2159 /* PosteDetailView.swift in Sources */,
 				B7E2793E2BA18FF000987C0A /* ListeJeuView.swift in Sources */,
 				B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */,
 				B7E279402BA1903600987C0A /* ListePosteView.swift in Sources */,
+				B7E2798F2BA26D5400987C0A /* JeuEspaceResponse.swift in Sources */,
+				B7E279932BA270FD00987C0A /* EspaceDetailView.swift in Sources */,
 				B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */,
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
 				B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */,
+				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
 			);
