@@ -6,7 +6,7 @@ struct EspaceDetailView: View {
 
     var body: some View {
             VStack {
-                Text(espace.nom ?? "Pas de description disponible")
+                Text(espace.nom)
                     .navigationTitle(espace.nom)
 
                 List(jeux) { jeu in
