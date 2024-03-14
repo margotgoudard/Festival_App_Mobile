@@ -18,6 +18,10 @@
 		B78FCD932BA2EBD000BA2159 /* Inscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD922BA2EBD000BA2159 /* Inscription.swift */; };
 		B78FCD952BA2F97600BA2159 /* Creneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD942BA2F97600BA2159 /* Creneau.swift */; };
 		B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD962BA3145500BA2159 /* FestivalView.swift */; };
+		B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9A2BA3997600BA2159 /* NotificationView.swift */; };
+		B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */; };
+		B78FCD9F2BA399D700BA2159 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */; };
+		B78FCDA12BA399F100BA2159 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCDA02BA399F100BA2159 /* Notification.swift */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
 		B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279392BA18FBB00987C0A /* InscrireView.swift */; };
@@ -50,6 +54,10 @@
 		B78FCD922BA2EBD000BA2159 /* Inscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscription.swift; sourceTree = "<group>"; };
 		B78FCD942BA2F97600BA2159 /* Creneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creneau.swift; sourceTree = "<group>"; };
 		B78FCD962BA3145500BA2159 /* FestivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalView.swift; sourceTree = "<group>"; };
+		B78FCD9A2BA3997600BA2159 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
+		B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		B78FCDA02BA399F100BA2159 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 				B78FCD862BA2202600BA2159 /* PosteViewModel.swift */,
 				B7E279882BA2684E00987C0A /* JeuViewModel.swift */,
 				B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */,
+				B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 				B7E2798C2BA26B4700987C0A /* Jeu.swift */,
 				B78FCD922BA2EBD000BA2159 /* Inscription.swift */,
 				B78FCD942BA2F97600BA2159 /* Creneau.swift */,
+				B78FCDA02BA399F100BA2159 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +149,7 @@
 				B7E2798E2BA26D5400987C0A /* JeuEspaceResponse.swift */,
 				B7E279902BA26F2F00987C0A /* JeuResponse.swift */,
 				B78FCD8E2BA2EB5E00BA2159 /* InscriptionResponse.swift */,
+				B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -154,6 +165,7 @@
 				B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */,
 				B7E279922BA270FD00987C0A /* EspaceDetailView.swift */,
 				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
+				B78FCD9A2BA3997600BA2159 /* NotificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,11 +255,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
+				B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
 				B78FCD912BA2EB9100BA2159 /* InscriptionViewModel.swift in Sources */,
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
 				B7E279892BA2684E00987C0A /* JeuViewModel.swift in Sources */,
 				B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */,
+				B78FCD9F2BA399D700BA2159 /* NotificationsView.swift in Sources */,
+				B78FCDA12BA399F100BA2159 /* Notification.swift in Sources */,
 				B7E2798D2BA26B4700987C0A /* Jeu.swift in Sources */,
 				B78FCD932BA2EBD000BA2159 /* Inscription.swift in Sources */,
 				B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */,
@@ -271,6 +286,7 @@
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
+				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
