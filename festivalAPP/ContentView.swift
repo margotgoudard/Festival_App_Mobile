@@ -107,8 +107,10 @@ struct ContentView: View {
                     let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
                     if loginResponse.auth {
                         UserDefaults.standard.set(loginResponse.token, forKey: "token")
-                        userData = loginResponse.user // Stocker les données utilisateur
-                        isAuthenticated = true // Navigate to the next view
+                        UserDefaults.standard.set(loginResponse.user?.iduser, forKey: "iduser")
+
+                        userData = loginResponse.user
+                        isAuthenticated = true
                         self.userData = loginResponse.user
                         print("Connexion réussie")
                         print(loginResponse.user)

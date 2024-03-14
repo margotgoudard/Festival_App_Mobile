@@ -11,4 +11,10 @@ struct Espace: Codable,Identifiable {
     var idzoneplan: Int?
     var idposte: Int
 
+    enum CodingKeys: String, CodingKey {
+        case idzonebenevole = "idzonebenevole"
+        case nom
+        case idzoneplan
+        case idposte
+    }
 }
