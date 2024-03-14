@@ -14,6 +14,9 @@ struct Navbar: View {
                 NavigationLink(destination: ListeInscriptionView(festival: festival)) {
                     Text("Inscription")
                 }
+                NavigationLink(destination: NotificationView()){
+                    Text("Notification")
+                }
             }
         }
 }
