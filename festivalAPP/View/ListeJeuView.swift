@@ -20,13 +20,13 @@ struct ListeJeuView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
                 .onChange(of: festivalUtils.selectedFestivalId) { newValue in
-                    viewModel.fetchJeux(forEspaceId:newValue)
+                    viewModel.fetchEspaces(forFestivalId: newValue)
                     festivalUtils.setSelectedFestival()
                 }
                 
                 if(festivalUtils.selectedFestival!.valide){
                     List(viewModel.espaces) { espace in
-                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeux)) {
+                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.idzonebenevole]!)) {
                             Text(espace.nom)
                         }
                     }
