@@ -6,9 +6,9 @@ struct EspaceDetailView: View {
 
     var body: some View {
             VStack {
-                Text(espace.nom ?? "Pas de description disponible")
+                Text(espace.nom)
                     .navigationTitle(espace.nom)
-
+                Spacer() 
                 List(jeux) { jeu in
                     VStack(alignment: .leading) {
                         Text(jeu.nom)

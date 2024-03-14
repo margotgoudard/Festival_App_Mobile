@@ -2,8 +2,8 @@ import Foundation
 
 class JeuViewModel: ObservableObject {
     @Published var espaces: [Espace] = []
-    @Published var selectedZone: Espace?
-    @Published var jeux: [Jeu] = []
+    //@Published var jeux: [Jeu] = []
+    @Published var jeuxByZone: [Int: [Jeu]] = [:]
 
     func fetchEspaces(forFestivalId festivalId: Int) {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/espace/allespaces") else {
@@ -38,8 +38,9 @@ class JeuViewModel: ObservableObject {
                 let decodedResponse = try decoder.decode(JeuEspaceResponse.self, from: data)
                     DispatchQueue.main.async {
                         self.espaces = decodedResponse.espaces
-                        self.selectedZone = self.espaces[0]
-                        self.fetchJeux(forEspaceId: self.espaces[0].idzonebenevole)
+                        for espace in self.espaces {
+                            self.fetchJeux(forEspaceId: espace.idzonebenevole, forFestivalId: festivalId)
+                        }
                         print("espaces fetched successfully.")
                     }
             } catch {
@@ -50,9 +51,9 @@ class JeuViewModel: ObservableObject {
         }.resume()
     }
     
-    func fetchJeux(forEspaceId espaceId: Int) {
+    func fetchJeux(forEspaceId espaceId: Int, forFestivalId festivalId:Int) {
         print("espace    ", espaceId)
-        guard let url = URL(string: "https://benevole-app-back.onrender.com/jeu/all?idzonebenevole=\(espaceId)") else {
+        guard let url = URL(string: "https://benevole-app-back.onrender.com/jeu/all?idzonebenevole=\(espaceId)&idfestival=\(festivalId)") else {
                 print("URL is not valid.")
                 return
             }
@@ -85,8 +86,9 @@ class JeuViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         let jeuData : [JeuData] = decodedResponse.jeux
                         
-                        self.jeux = jeuData.flatMap { $0.Jeu }
-            
+                        //self.jeux = jeuData.flatMap { $0.Jeu }
+                        self.jeuxByZone[espaceId] = jeuData.flatMap { $0.Jeu }
+                        
                         print("jeux fetched successfully.")
                     }
             } catch {
