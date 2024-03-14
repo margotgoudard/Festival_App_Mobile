@@ -17,9 +17,15 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
+                    .padding(.horizontal, 30)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
                 
                 SecureField("Mot de passe", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal, 30)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
                 
                 if !notification.isEmpty {
                     Text(notification)
