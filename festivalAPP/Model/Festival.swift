@@ -22,8 +22,8 @@ class Festival: Identifiable, ObservableObject, Decodable {
         case id = "idfestival"
         case annee
         case valide
-        case date_debut = "date_debut"
-        case date_fin = "date_fin"
+        case date_debut
+        case date_fin
         case nom
     }
 }
