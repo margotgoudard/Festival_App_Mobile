@@ -2,7 +2,7 @@ import Foundation
 
 class FestivalUtils: ObservableObject {
     
-    @Published var selectedFestivalId: Int = 0
+    @Published var selectedFestivalId: Int? = nil
     @Published var selectedFestival: Festival? = nil
     @Published var festivals: [Festival] = []
     
@@ -12,7 +12,7 @@ class FestivalUtils: ObservableObject {
     
     func setSelectedFestival(){
         DispatchQueue.main.async {
-            self.selectedFestival = self.festivals.first(where: { $0.idfestival == self.selectedFestivalId })
+            self.selectedFestival = self.festivals.first(where: { $0.id == self.selectedFestivalId })
         }
     }
     
@@ -53,7 +53,7 @@ class FestivalUtils: ObservableObject {
 
                 DispatchQueue.main.async {
                     self.festivals=filteredFestivals
-                    self.selectedFestivalId=self.festivals[0].idfestival
+                    self.selectedFestivalId=self.festivals[0].id
                     self.setSelectedFestival()
                     completion(filteredFestivals, nil)
                     print("Festivals fetched successfully.")

@@ -17,6 +17,7 @@
 		B78FCD912BA2EB9100BA2159 /* InscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */; };
 		B78FCD932BA2EBD000BA2159 /* Inscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD922BA2EBD000BA2159 /* Inscription.swift */; };
 		B78FCD952BA2F97600BA2159 /* Creneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD942BA2F97600BA2159 /* Creneau.swift */; };
+		B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD962BA3145500BA2159 /* FestivalView.swift */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
 		B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279392BA18FBB00987C0A /* InscrireView.swift */; };
@@ -48,6 +49,7 @@
 		B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewModel.swift; sourceTree = "<group>"; };
 		B78FCD922BA2EBD000BA2159 /* Inscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscription.swift; sourceTree = "<group>"; };
 		B78FCD942BA2F97600BA2159 /* Creneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creneau.swift; sourceTree = "<group>"; };
+		B78FCD962BA3145500BA2159 /* FestivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalView.swift; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
 				B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */,
 				B7E279922BA270FD00987C0A /* EspaceDetailView.swift */,
+				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
 				B78FCD912BA2EB9100BA2159 /* InscriptionViewModel.swift in Sources */,
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,

@@ -31,8 +31,10 @@ struct ContentView: View {
                 }
                 .buttonStyle(PrimaryButtonStyle())
                 
+                let festivalUtils = FestivalUtils()
+                
                 if let user = userData {
-                    NavigationLink(destination: ProfilView(user: user), isActive:.constant(true)) { EmptyView() }
+                    NavigationLink(destination: ProfilView(festivalUtils: festivalUtils, user: user), isActive:.constant(true)) { EmptyView() }
                 }
                 Button("S'inscrire") {
                     inscrire()

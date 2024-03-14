@@ -8,16 +8,7 @@ struct ListeInscriptionView: View {
     
     var body: some View {
         VStack {
-            Picker("Sélectionnez un festival", selection: $festivalUtils.selectedFestivalId) {
-                ForEach(festivalUtils.festivals) { festival in
-                    Text(festival.nom).tag(festival.idfestival as Int?)
-                }
-            }
-            .pickerStyle(MenuPickerStyle())
-            .onChange(of: festivalUtils.selectedFestivalId) { newValue in
-                viewModel.fetchInscriptions(token: token, idUser: idUser, idFestival: newValue)
-                festivalUtils.setSelectedFestival()
-            }
+            
             
             if viewModel.isLoading {
                         ProgressView()

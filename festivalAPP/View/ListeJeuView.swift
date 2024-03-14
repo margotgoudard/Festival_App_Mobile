@@ -13,17 +13,6 @@ struct ListeJeuView: View {
         NavigationView {
             VStack {
                 
-                Picker("Sélectionnez un festival", selection: $festivalUtils.selectedFestivalId) {
-                    ForEach(festivalUtils.festivals) { festival in
-                        Text(festival.nom).tag(festival.idfestival as Int?)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
-                .onChange(of: festivalUtils.selectedFestivalId) { newValue in
-                    viewModel.fetchEspaces(forFestivalId: newValue)
-                    festivalUtils.setSelectedFestival()
-                }
-                
                 if(festivalUtils.selectedFestival!.valide){
                     List(viewModel.espaces) { espace in
                         NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.idzonebenevole]!)) {
@@ -42,7 +31,9 @@ struct ListeJeuView: View {
             
             }
             .onAppear {
-                viewModel.fetchEspaces(forFestivalId: festivalUtils.selectedFestivalId)
+                if let festivalId = festivalUtils.selectedFestivalId {
+                                        viewModel.fetchEspaces(forFestivalId: festivalId)
+                                    }
             }
     
             .navigationTitle("Festivals et Postes")
