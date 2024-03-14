@@ -2,31 +2,21 @@ import SwiftUI
 
 struct ListeJeuView: View {
     @ObservedObject private var viewModel: JeuViewModel
-    @ObservedObject private var festivalUtils: FestivalUtils
-    init(){
-        viewModel = JeuViewModel()
-        festivalUtils = FestivalUtils()
-    }
+    var festival: Festival
+   
+   init(festival: Festival){
+       self.festival = festival
+       viewModel = JeuViewModel()
+   }
 
     var body: some View {
         ScrollView {
         NavigationView {
             VStack {
                 
-                Picker("Sélectionnez un festival", selection: $festivalUtils.selectedFestivalId) {
-                    ForEach(festivalUtils.festivals) { festival in
-                        Text(festival.nom).tag(festival.idfestival as Int?)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
-                .onChange(of: festivalUtils.selectedFestivalId) { newValue in
-                    viewModel.fetchEspaces(forFestivalId: newValue)
-                    festivalUtils.setSelectedFestival()
-                }
-                
-                if(festivalUtils.selectedFestival!.valide){
-                    List(viewModel.espaces) { espace in
-                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.idzonebenevole]!)) {
+                if(festival.valide){
+                    List(viewModel.espaces, id: \.id) { espace in
+                        NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.id] ?? [])) {
                             Text(espace.nom)
                         }
                     }
@@ -35,14 +25,14 @@ struct ListeJeuView: View {
                     VStack{
                         Text("PAS OUVERT")
                     }.onAppear{
-                        print("test",festivalUtils.selectedFestival!)
+                        print("test")
                     }
                     
                 }
             
             }
             .onAppear {
-                viewModel.fetchEspaces(forFestivalId: festivalUtils.selectedFestivalId)
+                viewModel.fetchEspaces(forFestivalId: festival.id)
             }
     
             .navigationTitle("Festivals et Postes")

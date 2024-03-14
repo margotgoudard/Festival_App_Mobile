@@ -39,7 +39,7 @@ class JeuViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.espaces = decodedResponse.espaces
                         for espace in self.espaces {
-                            self.fetchJeux(forEspaceId: espace.idzonebenevole, forFestivalId: festivalId)
+                            self.fetchJeux(forEspaceId: espace.id, forFestivalId: festivalId)
                         }
                         print("espaces fetched successfully.")
                     }

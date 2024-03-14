@@ -1,3 +1,3 @@
-struct FestivalsResponse: Codable {
+struct FestivalsResponse: Decodable {
     let festivals: [Festival]
 }

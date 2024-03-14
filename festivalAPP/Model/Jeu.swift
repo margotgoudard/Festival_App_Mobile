@@ -1,12 +1,7 @@
 import Foundation
 
 struct Jeu: Codable, Identifiable {
-    var id: Int {
-        get { idjeu }
-        set { idjeu = newValue }
-    }
-    
-    var idjeu: Int
+    var id: Int
     var nom: String
     var auteur: String?
     var editeur: String?
@@ -24,5 +19,27 @@ struct Jeu: Codable, Identifiable {
     var image: String?
     var logo: String?
     var video: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idjeu"
+        case nom
+        case auteur
+        case editeur
+        case nbjoueurs
+        case agemin
+        case duree
+        case type
+        case notice
+        case aanimer
+        case recu
+        case mecanismes
+        case themes
+        case tags
+        case description
+        case image
+        case logo
+        case video
+    }
+    
 }
 

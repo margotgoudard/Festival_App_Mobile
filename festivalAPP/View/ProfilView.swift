@@ -1,111 +1,100 @@
 import SwiftUI
 
+// Assuming User and Festival models are defined elsewhere
 struct ProfilView: View {
-   @State var user: User
-   @State private var isMenuVisible = false
+    @State private var user: User
+    @ObservedObject private var festivalUtils: FestivalUtils
+    @State private var selectedFestivalForDetails: Festival?
+    @State private var dropdownTitle = "Sélectionnez un festival"
     
+    init(festivalUtils: FestivalUtils, user: User) {
+        self._festivalUtils = ObservedObject(initialValue: festivalUtils)
+        self._user = State(initialValue: user)
+    }
+
     var body: some View {
-        HStack {
-                            Button(action: {
-                                isMenuVisible.toggle()
-                            }) {
-                                Image(systemName: "line.horizontal.3")
-                                    .font(.title)
-                                    .foregroundColor(.blue)
-                            }
-                            Spacer()
+        VStack {
+            HStack {
+                Menu(dropdownTitle) {
+                    ForEach(festivalUtils.festivals) { festival in
+                        Button("\(festival.id)") {
+                            selectedFestivalForDetails = festival
+                            dropdownTitle = "\(festival.id)"
                         }
-                        .padding()
-                                    
-                        if isMenuVisible {
-                            Navbar()
-                        }
+                    }
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(10)
+
+                if let festivalToDisplay = selectedFestivalForDetails {
+                    NavigationLink(destination: FestivalView(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
+                }
+                
+                Spacer()
+                
+            }
+            .padding()
+            
+            
+            profileForm
+        }
+        .onAppear {
+            dropdownTitle = "Sélectionnez un festival"
+            selectedFestivalForDetails = nil
+        }
+    }
+
+    // Extracted the profile form to a computed property for better readability
+    private var profileForm: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Profil").font(.largeTitle).fontWeight(.bold)
                 
-                HStack {
-                    Text("Nom:").bold()
-                    Spacer()
-                    TextField("Nom", text: $user.nom)
+                Group {
+                    ProfileTextField(label: "Nom", text: $user.nom)
+                    ProfileTextField(label: "Prénom", text: $user.prenom)
+                    ProfileTextField(label: "Pseudo", text: $user.pseudo)
+                    ProfileTextField(label: "Email", text: $user.mail)
+                    ProfileTextField(label: "Téléphone", text: $user.tel)
+                    ProfileTextField(label: "Association", text: $user.association)
+                    ProfileTextField(label: "Jeu préféré", text: $user.jeu_prefere)
+                    ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
+                    ProfileTextField(label: "Hébergement", text: $user.hebergement)
                 }
                 
-                HStack {
-                    Text("Prénom:").bold()
-                    Spacer()
-                    TextField("Prénom", text: $user.prenom)
+                Toggle(isOn: $user.est_vegetarien) {
+                    Text(user.est_vegetarien ? "Oui" : "Non").bold()
                 }
                 
-                HStack {
-                    Text("Pseudo:").bold()
-                    Spacer()
-                    TextField("Pseudo", text: $user.pseudo)
-                }
-                
-            }
-            VStack(alignment: .leading, spacing: 20) {
-                
-                HStack {
-                    Text("Email:").bold()
-                    Spacer()
-                    TextField("Mail", text: $user.mail)
-                }
-                
-                HStack {
-                    Text("Téléphone:").bold()
-                    Spacer()
-                    TextField("Téléphone", text: $user.tel)
-                }
-                
-                HStack {
-                    Text("Association:").bold()
-                    Spacer()
-                    TextField("Association", text: $user.association)
-                }
-                
-                HStack {
-                    Text("Jeu préféré:").bold()
-                    Spacer()
-                    TextField("Jeu Préféré", text: $user.jeu_prefere)
-                }
-                
-                HStack {
-                    Text("Taille de T-Shirt:").bold()
-                    Spacer()
-                    TextField("Taille", text: $user.taille_tshirt)
-                }
-                
-                HStack {
-                    Text("Hébergement:").bold()
-                    Spacer()
-                    TextField("Hébergement", text: $user.hebergement)
-                }
-                
-                
-                HStack {
-                    Text("Végétarien:").bold()
-                    Spacer()
-                    Toggle(isOn: $user.est_vegetarien) {
-                            Text(user.est_vegetarien ? "Oui" : "Non")
-                    }
-                }
                 Button(action: {
-                    let updatedUser = User(association: user.association, est_vegetarien: user.est_vegetarien,  hebergement: user.hebergement, iduser: user.iduser, jeu_prefere: user.jeu_prefere, mail: user.mail, mdp: user.mdp, nom: user.nom, prenom: user.prenom, pseudo: user.pseudo, taille_tshirt: user.taille_tshirt, tel: user.tel)
-
-                    updateUserInfo(updatedUser)
-                            }) {
-                                Text("Enregistrer les modifications")
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color.blue)
-                                    .cornerRadius(10)
-                            }
-
+                    updateUserInfo(user)
+                }) {
+                    Text("Enregistrer les modifications")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
             .padding()
         }
     }
 }
+    
+    struct ProfileTextField: View {
+        var label: String
+        @Binding var text: String
+        
+        var body: some View {
+            HStack {
+                Text("\(label):").bold()
+                Spacer()
+                TextField(label, text: $text)
+            }
+        }
+    }
 
 func updateUserInfo(_ updatedUser: User) {
     guard let jsonData = try? JSONEncoder().encode(updatedUser) else {
@@ -122,7 +111,7 @@ func updateUserInfo(_ updatedUser: User) {
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     
-        request.httpBody = jsonData
+    request.httpBody = jsonData
     
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     
@@ -135,6 +124,4 @@ func updateUserInfo(_ updatedUser: User) {
             print("Code de statut HTTP de la réponse: \(httpResponse.statusCode)")
         }
     }
-    
-    task.resume()
 }
