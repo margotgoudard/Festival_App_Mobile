@@ -2,18 +2,19 @@ import SwiftUI
 
 struct ListeJeuView: View {
     @ObservedObject private var viewModel: JeuViewModel
-    @ObservedObject private var festivalUtils: FestivalUtils
-    init(){
-        viewModel = JeuViewModel()
-        festivalUtils = FestivalUtils()
-    }
+    var festival: Festival
+   
+   init(festival: Festival){
+       self.festival = festival
+       viewModel = JeuViewModel()
+   }
 
     var body: some View {
         ScrollView {
         NavigationView {
             VStack {
                 
-                if(festivalUtils.selectedFestival!.valide){
+                if(festival.valide){
                     List(viewModel.espaces) { espace in
                         NavigationLink(destination: EspaceDetailView(espace: espace, jeux: viewModel.jeuxByZone[espace.idzonebenevole]!)) {
                             Text(espace.nom)
@@ -24,16 +25,14 @@ struct ListeJeuView: View {
                     VStack{
                         Text("PAS OUVERT")
                     }.onAppear{
-                        print("test",festivalUtils.selectedFestival!)
+                        print("test")
                     }
                     
                 }
             
             }
             .onAppear {
-                if let festivalId = festivalUtils.selectedFestivalId {
-                                        viewModel.fetchEspaces(forFestivalId: festivalId)
-                                    }
+                viewModel.fetchEspaces(forFestivalId: festival.id)
             }
     
             .navigationTitle("Festivals et Postes")

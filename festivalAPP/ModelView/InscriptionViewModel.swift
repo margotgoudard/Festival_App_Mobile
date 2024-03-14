@@ -14,16 +14,22 @@ class InscriptionViewModel: ObservableObject {
         }
     }
 
-    func fetchInscriptions(token: String, idUser: Int, idFestival: Int) {
+    func fetchInscriptions(idUser: Int, idFestival: Int) {
            guard let url = URL(string: "https://benevole-app-back.onrender.com/inscription/user/\(idUser)/\(idFestival)")
             else {
                print("URL is not valid.")
                return
            }
-           
-           var request = URLRequest(url: url)
-           request.httpMethod = "GET"
-           request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            if let token = getAuthToken() {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } else {
+                print("Token d'authentification non trouvé.")
+                return
+            }
+    
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -56,5 +62,9 @@ class InscriptionViewModel: ObservableObject {
 
             }
         }.resume()
+    }
+    
+    func getAuthToken() -> String? {
+        return UserDefaults.standard.string(forKey: "token")
     }
 }
