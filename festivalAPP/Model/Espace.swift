@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Espace: Codable,Identifiable {
+struct Espace: Codable,Identifiable,Equatable {
     var id: Int {
             get { idzonebenevole }
             set { idzonebenevole = newValue }
