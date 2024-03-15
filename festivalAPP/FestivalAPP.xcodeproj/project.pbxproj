@@ -128,8 +128,8 @@
 		B7E279492BA1958C00987C0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B7E279472BA190EF00987C0A /* User.swift */,
 				B78FCD802BA21E3900BA2159 /* Festival.swift */,
+				B7E279472BA190EF00987C0A /* User.swift */,
 				B78FCD822BA21E4300BA2159 /* Poste.swift */,
 				B7E2798A2BA268FE00987C0A /* Espace.swift */,
 				B7E2798C2BA26B4700987C0A /* Jeu.swift */,

@@ -4,13 +4,12 @@ struct ListeJeuView: View {
     @ObservedObject private var viewModel: JeuViewModel
     var festival: Festival
    
-   init(festival: Festival){
+    init(festival: Festival, viewModel : JeuViewModel){
        self.festival = festival
-       viewModel = JeuViewModel()
+        self.viewModel = viewModel
    }
 
     var body: some View {
-        ScrollView {
         NavigationView {
             VStack {
                 
@@ -20,7 +19,6 @@ struct ListeJeuView: View {
                             Text(espace.nom)
                         }
                     }
-                    .navigationTitle("Espaces")
                 }else{
                     VStack{
                         Text("PAS OUVERT")
@@ -34,10 +32,9 @@ struct ListeJeuView: View {
             .onAppear {
                 viewModel.fetchEspaces(forFestivalId: festival.id)
             }
+            
     
-            .navigationTitle("Festivals et Postes")
-        }
-        }
+        }.navigationBarTitle("Liste des jeux", displayMode: .inline)
     }
     
 }

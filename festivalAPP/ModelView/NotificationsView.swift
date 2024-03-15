@@ -13,7 +13,7 @@ class NotificationsViewModel: ObservableObject {
     @Published var isLoading = false
     
     func fetchNotifications(token: String, idUser: Int, idFestival: Int) {
-        print("fetching")
+        
         isLoading = true
         
         guard let url = URL(string: "https://benevole-app-back.onrender.com/notification/get-by-user/\(idUser)/\(idFestival)") else {
@@ -63,6 +63,7 @@ class NotificationsViewModel: ObservableObject {
         
         task.resume()
     }
+    
     func deleteNotifications(token: String,idnotif: Int, index: IndexSet) {
         
         guard let url = URL(string: "https://benevole-app-back.onrender.com/notification/delete") else {
@@ -108,5 +109,10 @@ class NotificationsViewModel: ObservableObject {
         } catch {
             print("Error serializing JSON: \(error.localizedDescription)")
         }
+    }
+    
+    
+    func countNotifications() -> Int {
+        return notifications.count
     }
 }

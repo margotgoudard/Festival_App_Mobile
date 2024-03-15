@@ -11,7 +11,6 @@ struct ListePosteView: View {
     }
 
     var body: some View {
-        ScrollView {
         NavigationView {
             VStack {
                 if(festival.valide){
@@ -20,8 +19,7 @@ struct ListePosteView: View {
                             Text(poste.nom)
                         }
                     }
-                    .navigationTitle("Postes")
-                }else{
+                                    }else{
                     VStack{
                         Text("PAS OUVERT")
                     }.onAppear{
@@ -31,14 +29,17 @@ struct ListePosteView: View {
                 }
             
             }
+            
             .onAppear {
                 viewModel.fetchPostes(forFestivalId: festival.id)
             }
 
     
-            .navigationTitle("Festivals et Postes")
+            
         }
-        }
+        
+        .navigationBarTitle("Liste des postes", displayMode: .inline)
+        
     }
     
 }

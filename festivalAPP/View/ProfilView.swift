@@ -17,9 +17,10 @@ struct ProfilView: View {
             HStack {
                 Menu(dropdownTitle) {
                     ForEach(festivalUtils.festivals) { festival in
-                        Button("\(festival.id)") {
+                        
+                        Button("\(festival.nom)") {
                             selectedFestivalForDetails = festival
-                            dropdownTitle = "\(festival.id)"
+                            dropdownTitle = "\(festival.nom)"
                         }
                     }
                 }
@@ -34,6 +35,10 @@ struct ProfilView: View {
                 
                 Spacer()
                 
+                Button("deconnexion") {
+                    UserDefaults.standard.set("", forKey: "token")
+                    // Je veux repartir sur la contentview
+                }
             }
             .padding()
             
