@@ -6,12 +6,19 @@ struct ProfilView: View {
     @ObservedObject private var festivalUtils: FestivalUtils
     @State private var selectedFestivalForDetails: Festival?
     @State private var dropdownTitle = "Sélectionnez un festival"
+    @State private var estDeconnecte = false
+
     
     init(festivalUtils: FestivalUtils, user: User) {
         self._festivalUtils = ObservedObject(initialValue: festivalUtils)
         self._user = State(initialValue: user)
     }
 
+    func deconnexion() {
+        UserDefaults.standard.set("", forKey: "token")
+        estDeconnecte = true
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -36,9 +43,9 @@ struct ProfilView: View {
                 Spacer()
                 
                 Button("deconnexion") {
-                    UserDefaults.standard.set("", forKey: "token")
-                    // Je veux repartir sur la contentview
+                    deconnexion()
                 }
+                NavigationLink(destination: ContentView(), isActive: $estDeconnecte) { EmptyView() }
             }
             .padding()
             
@@ -48,10 +55,10 @@ struct ProfilView: View {
         .onAppear {
             dropdownTitle = "Sélectionnez un festival"
             selectedFestivalForDetails = nil
-        }
+        } .navigationBarBackButtonHidden(true)
     }
 
-    // Extracted the profile form to a computed property for better readability
+    
     private var profileForm: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -70,7 +77,7 @@ struct ProfilView: View {
                 }
                 
                 Toggle(isOn: $user.est_vegetarien) {
-                    Text(user.est_vegetarien ? "Oui" : "Non").bold()
+                    Text(user.est_vegetarien ? "Végétarien" : "Non Végétarien").bold()
                 }
                 
                 Button(action: {

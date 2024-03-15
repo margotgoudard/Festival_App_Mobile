@@ -49,16 +49,8 @@ struct ContentView: View {
                 NavigationLink(destination: InscrireView(), isActive: $isRegistering) { EmptyView() }
                 .buttonStyle(PrimaryButtonStyle())
             }
-                .onTapGesture {
-                    isAuthenticated = false
-                    userData = nil
-                }
-                .onAppear {
-                    mail = ""
-                    password = ""
-                }
+        }.navigationBarBackButtonHidden(true)
 
-        }
     }
     
     
@@ -92,7 +84,7 @@ struct ContentView: View {
         request.httpBody = finalBody
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        print("Envoi de la ...")
+        print("Envoi de la requête")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {

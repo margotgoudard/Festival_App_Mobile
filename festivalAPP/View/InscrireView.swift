@@ -3,6 +3,7 @@ import SwiftUI
 struct InscrireView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var user = User(association: "", est_vegetarien: false, hebergement: "", iduser: 0, jeu_prefere: "", mail: "", mdp: "", nom: "", prenom: "", pseudo: "", taille_tshirt: "", tel: "")
+    @State private var showAlert = false
     
     var body: some View {
         Form {
@@ -28,6 +29,9 @@ struct InscrireView: View {
             }
         }
         .navigationBarTitle("Inscription", displayMode: .inline)
+        .alert("Inscription réussie", isPresented: $showAlert) {
+                    Button("OK", role: .cancel) { }
+                }
     }
     
     func registerUser() {
@@ -62,7 +66,7 @@ struct InscrireView: View {
                     return
                 }
                 
-                // Success handling
+                self.showAlert = true
                 print("User registered successfully")
                 // Optionally reset the form or navigate away
                 self.presentationMode.wrappedValue.dismiss()
