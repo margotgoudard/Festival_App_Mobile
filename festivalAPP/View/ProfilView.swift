@@ -19,6 +19,13 @@ struct ProfilView: View {
         estDeconnecte = true
     }
     
+    private func categoryTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.title2)
+            .fontWeight(.semibold)
+            .padding(.vertical)
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -64,35 +71,47 @@ struct ProfilView: View {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Profil").font(.largeTitle).fontWeight(.bold)
                 
+                categoryTitle("Informations personnelles")
                 Group {
                     ProfileTextField(label: "Nom", text: $user.nom)
                     ProfileTextField(label: "Prénom", text: $user.prenom)
                     ProfileTextField(label: "Pseudo", text: $user.pseudo)
                     ProfileTextField(label: "Email", text: $user.mail)
                     ProfileTextField(label: "Téléphone", text: $user.tel)
-                    ProfileTextFieldOptional(label: "Association", text: $user.association)
-                    ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
-                    ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
-                    ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
                 }
                 
+                Divider()
+                
+                categoryTitle("Préférences")
                 Toggle(isOn: Binding<Bool>(
                     get: { self.user.est_vegetarien ?? false },
                     set: { self.user.est_vegetarien = $0 }
                 )) {
                     Text(user.est_vegetarien ?? false ? "Végétarien" : "Non Végétarien").bold()
                 }
-
+                ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
                 
-                Button(action: {
-                    updateUserInfo(user)
-                }) {
-                    Text("Enregistrer les modifications")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                Divider()
+                
+                categoryTitle("Autres informations")
+                Group {
+                    ProfileTextFieldOptional(label: "Association", text: $user.association)
+                    ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
+                    ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
                 }
+                
+            }
+            .padding()
+            HStack {
+            Button(action: {
+                updateUserInfo(user)
+            }) {
+                Text("Enregistrer les modifications")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
             }
             .padding()
         }
