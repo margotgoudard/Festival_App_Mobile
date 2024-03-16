@@ -24,7 +24,6 @@
 		B78FCDA12BA399F100BA2159 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCDA02BA399F100BA2159 /* Notification.swift */; };
 		B7A01A6F2BA4A72F002A0C03 /* Supervision.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A6E2BA4A72F002A0C03 /* Supervision.swift */; };
 		B7A01A712BA4A8A2002A0C03 /* SupervisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */; };
-		B7A01A732BA5914D002A0C03 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A722BA5914D002A0C03 /* NavigationViewModel.swift */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
 		B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279392BA18FBB00987C0A /* InscrireView.swift */; };
@@ -63,7 +62,6 @@
 		B78FCDA02BA399F100BA2159 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B7A01A6E2BA4A72F002A0C03 /* Supervision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supervision.swift; sourceTree = "<group>"; };
 		B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisionResponse.swift; sourceTree = "<group>"; };
-		B7A01A722BA5914D002A0C03 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				B7E279882BA2684E00987C0A /* JeuViewModel.swift */,
 				B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */,
 				B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */,
-				B7A01A722BA5914D002A0C03 /* NavigationViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -263,7 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A01A732BA5914D002A0C03 /* NavigationViewModel.swift in Sources */,
 				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
 				B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
