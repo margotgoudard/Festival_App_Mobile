@@ -70,15 +70,19 @@ struct ProfilView: View {
                     ProfileTextField(label: "Pseudo", text: $user.pseudo)
                     ProfileTextField(label: "Email", text: $user.mail)
                     ProfileTextField(label: "Téléphone", text: $user.tel)
-                    ProfileTextField(label: "Association", text: $user.association)
-                    ProfileTextField(label: "Jeu préféré", text: $user.jeu_prefere)
+                    ProfileTextFieldOptional(label: "Association", text: $user.association)
+                    ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
                     ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
-                    ProfileTextField(label: "Hébergement", text: $user.hebergement)
+                    ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
                 }
                 
-                Toggle(isOn: $user.est_vegetarien) {
-                    Text(user.est_vegetarien ? "Végétarien" : "Non Végétarien").bold()
+                Toggle(isOn: Binding<Bool>(
+                    get: { self.user.est_vegetarien ?? false },
+                    set: { self.user.est_vegetarien = $0 }
+                )) {
+                    Text(user.est_vegetarien ?? false ? "Végétarien" : "Non Végétarien").bold()
                 }
+
                 
                 Button(action: {
                     updateUserInfo(user)
@@ -95,18 +99,36 @@ struct ProfilView: View {
     }
 }
     
-    struct ProfileTextField: View {
-        var label: String
-        @Binding var text: String
-        
-        var body: some View {
-            HStack {
-                Text("\(label):").bold()
-                Spacer()
-                TextField(label, text: $text)
-            }
+struct ProfileTextField: View {
+    var label: String
+    @Binding var text: String
+
+    var body: some View {
+        HStack {
+            Text("\(label):").bold()
+            Spacer()
+            TextField(label, text: $text)
         }
     }
+}
+
+struct ProfileTextFieldOptional: View {
+    var label: String
+    @Binding var text: String?
+
+    var body: some View {
+        HStack {
+            Text("\(label):").bold()
+            Spacer()
+            TextField(label, text: Binding<String>(
+                get: { self.text ?? "" },
+                set: { newValue in self.text = newValue.isEmpty ? nil : newValue }
+            ))
+        }
+    }
+}
+
+
 
 func updateUserInfo(_ updatedUser: User) {
     guard let jsonData = try? JSONEncoder().encode(updatedUser) else {

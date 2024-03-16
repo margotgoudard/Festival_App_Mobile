@@ -2,9 +2,15 @@ import SwiftUI
 
 struct InscrireView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var user = User(association: "", est_vegetarien: false, hebergement: "", iduser: 0, jeu_prefere: "", mail: "", mdp: "", nom: "", prenom: "", pseudo: "", taille_tshirt: "", tel: "")
+    @State private var user = User(association: nil, est_vegetarien: false, hebergement: "", iduser: 0, jeu_prefere: "", mail: "", mdp: "", nom: "", prenom: "", pseudo: "", taille_tshirt: "", tel: "")
     @State private var showAlert = false
-    
+    @State private var association: String = ""
+    @State private var est_vegetarien: Bool = false
+    @State private var hebergement: String = ""
+    @State private var jeu_prefere: String = ""
+
+
+
     var body: some View {
         Form {
             Section(header: Text("Informations personnelles")) {
@@ -14,13 +20,13 @@ struct InscrireView: View {
                 SecureField("Mot de passe", text: $user.mdp)
                 TextField("Téléphone", text: $user.tel)
                 TextField("Pseudo", text: $user.pseudo)
-                Toggle("Est végétarien ?", isOn: $user.est_vegetarien)
+                Toggle("Est végétarien ?", isOn: $est_vegetarien)
             }
             
             Section(header: Text("Détails supplémentaires")) {
-                TextField("Association", text: $user.association)
-                TextField("Hébergement", text: $user.hebergement)
-                TextField("Jeu préféré", text: $user.jeu_prefere)
+                TextField("Association", text: $association)
+                TextField("Hébergement", text: $hebergement)
+                TextField("Jeu préféré", text: $jeu_prefere)
                 TextField("Taille T-shirt", text: $user.taille_tshirt)
             }
             
@@ -35,6 +41,13 @@ struct InscrireView: View {
     }
     
     func registerUser() {
+        
+        user.association = association.isEmpty ? nil : association
+        user.hebergement = hebergement.isEmpty ? nil : hebergement
+        user.jeu_prefere = jeu_prefere.isEmpty ? nil : jeu_prefere
+        user.est_vegetarien = est_vegetarien
+
+
         guard let url = URL(string: "https://benevole-app-back.onrender.com/user/inscription") else {
             print("Invalid URL")
             return
