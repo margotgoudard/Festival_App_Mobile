@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct User: Codable {
-var association: String
-var est_vegetarien: Bool
-var hebergement: String
+var association: String?
+var est_vegetarien: Bool?
+var hebergement: String?
 var iduser: Int
-var jeu_prefere: String
+var jeu_prefere: String?
 var mail: String
 var mdp: String
 var nom: String
