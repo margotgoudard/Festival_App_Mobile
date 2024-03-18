@@ -26,6 +26,9 @@
 		B7A01A712BA4A8A2002A0C03 /* SupervisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */; };
 		B7A01A7C2BA84A21002A0C03 /* FestivalAPP.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = B7A01A7B2BA84A21002A0C03 /* FestivalAPP.xcodeproj */; };
 		B7A01A8B2BA853B0002A0C03 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A01A8A2BA853B0002A0C03 /* placeholder.png */; };
+		B7A01A912BA85629002A0C03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A902BA85629002A0C03 /* LoginView.swift */; };
+		B7A01A942BA85684002A0C03 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A01A932BA85684002A0C03 /* PrimaryButton.swift */; };
+		B7A01A962BA857AB002A0C03 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A01A952BA857AB002A0C03 /* logo.png */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
 		B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E279392BA18FBB00987C0A /* InscrireView.swift */; };
@@ -66,6 +69,9 @@
 		B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisionResponse.swift; sourceTree = "<group>"; };
 		B7A01A7B2BA84A21002A0C03 /* FestivalAPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = FestivalAPP.xcodeproj; sourceTree = "<group>"; };
 		B7A01A8A2BA853B0002A0C03 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../../Downloads/placeholder.png; sourceTree = "<group>"; };
+		B7A01A902BA85629002A0C03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B7A01A932BA85684002A0C03 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		B7A01A952BA857AB002A0C03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../Downloads/logo.png; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,10 +120,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B7A01A922BA8566E002A0C03 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				B7A01A932BA85684002A0C03 /* PrimaryButton.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		B7E2791F2BA18E6F00987C0A = {
 			isa = PBXGroup;
 			children = (
+				B7A01A922BA8566E002A0C03 /* Style */,
 				B7A01A8A2BA853B0002A0C03 /* placeholder.png */,
+				B7A01A952BA857AB002A0C03 /* logo.png */,
 				B7A01A7B2BA84A21002A0C03 /* FestivalAPP.xcodeproj */,
 				B7E279852BA2486C00987C0A /* Utils */,
 				B78FCD852BA21FDD00BA2159 /* ModelView */,
@@ -183,6 +199,7 @@
 				B7E279922BA270FD00987C0A /* EspaceDetailView.swift */,
 				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
 				B78FCD9A2BA3997600BA2159 /* NotificationView.swift */,
+				B7A01A902BA85629002A0C03 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A01A962BA857AB002A0C03 /* logo.png in Resources */,
 				B7A01A8B2BA853B0002A0C03 /* placeholder.png in Resources */,
 				B7A01A7C2BA84A21002A0C03 /* FestivalAPP.xcodeproj in Resources */,
 			);
@@ -309,10 +327,12 @@
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
 				B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */,
+				B7A01A912BA85629002A0C03 /* LoginView.swift in Sources */,
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
 				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,
+				B7A01A942BA85684002A0C03 /* PrimaryButton.swift in Sources */,
 				B7A01A6F2BA4A72F002A0C03 /* Supervision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
