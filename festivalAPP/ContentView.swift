@@ -8,7 +8,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Image(uiImage: UIImage(named: "logo.png")!)
+                Image(uiImage: UIImage(named: "logo.png")!) // Assure-toi que l'image existe
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
@@ -32,8 +32,10 @@ struct ContentView: View {
                 Text("Se connecter")
             })
             .fullScreenCover(isPresented: $isLoggingIn) {
-                LoginView() // Assume LoginView is your login component
+                LoginView() // Ici, tu insères ta vue de connexion
             }
         }
+        .navigationBarHidden(true) // Masque toute la barre de navigation
+        .navigationBarBackButtonHidden(true) // Masque spécifiquement le bouton de retour
     }
 }
