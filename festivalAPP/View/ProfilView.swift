@@ -44,7 +44,7 @@ struct ProfilView: View {
                 .cornerRadius(10)
 
                 if let festivalToDisplay = selectedFestivalForDetails {
-                    NavigationLink(destination: FestivalView(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
+                    NavigationLink(destination: Navbar(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
                 }
                 
                 Spacer()
