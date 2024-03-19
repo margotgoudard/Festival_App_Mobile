@@ -6,7 +6,6 @@ struct InscrireView: View {
     @State private var showAlert = false
     @State private var association: String = ""
     @State private var est_vegetarien: Bool = false
-    @State private var hebergement: String = ""
     @State private var jeu_prefere: String = ""
 
 
@@ -25,7 +24,6 @@ struct InscrireView: View {
             
             Section(header: Text("Détails supplémentaires")) {
                 TextField("Association", text: $association)
-                TextField("Hébergement", text: $hebergement)
                 TextField("Jeu préféré", text: $jeu_prefere)
                 TextField("Taille T-shirt", text: $user.taille_tshirt)
             }
@@ -43,7 +41,6 @@ struct InscrireView: View {
     func registerUser() {
         
         user.association = association.isEmpty ? nil : association
-        user.hebergement = hebergement.isEmpty ? nil : hebergement
         user.jeu_prefere = jeu_prefere.isEmpty ? nil : jeu_prefere
         user.est_vegetarien = est_vegetarien
 
@@ -68,20 +65,17 @@ struct InscrireView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    // Handle networking error
                     print("Networking error: \(error.localizedDescription)")
                     return
                 }
                 
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    // Handle server-side error
                     print("Server error or invalid response")
                     return
                 }
                 
                 self.showAlert = true
                 print("User registered successfully")
-                // Optionally reset the form or navigate away
                 self.presentationMode.wrappedValue.dismiss()
             }
         }.resume()
