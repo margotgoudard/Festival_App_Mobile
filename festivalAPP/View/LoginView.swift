@@ -106,14 +106,27 @@ struct LoginView: View {
                 do {
                     let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
                     if loginResponse.auth {
+                        // Supposons que loginResponse.user contient un objet User avec toutes les infos
+                        let user = loginResponse.user
                         UserDefaults.standard.set(loginResponse.token, forKey: "token")
-                        UserDefaults.standard.set(loginResponse.user?.iduser, forKey: "iduser")
+                        UserDefaults.standard.set(user?.iduser, forKey: "iduser")
+                        // Enregistrer chaque propriété individuellement
+                        UserDefaults.standard.set(user?.association, forKey: "association")
+                        UserDefaults.standard.set(user?.est_vegetarien, forKey: "est_vegetarien")
+                        UserDefaults.standard.set(user?.hebergement, forKey: "hebergement")
+                        UserDefaults.standard.set(user?.jeu_prefere, forKey: "jeu_prefere")
+                        UserDefaults.standard.set(user?.mail, forKey: "mail")
+                        UserDefaults.standard.set(user?.mdp, forKey: "mdp") // Faites attention à stocker des mots de passe en clair
+                        UserDefaults.standard.set(user?.nom, forKey: "nom")
+                        UserDefaults.standard.set(user?.prenom, forKey: "prenom")
+                        UserDefaults.standard.set(user?.pseudo, forKey: "pseudo")
+                        UserDefaults.standard.set(user?.taille_tshirt, forKey: "taille_tshirt")
+                        UserDefaults.standard.set(user?.tel, forKey: "tel")
 
-                        userData = loginResponse.user
+                        userData = user
                         isAuthenticated = true
-                        self.userData = loginResponse.user
                         print("Connexion réussie")
-                        print(loginResponse.user)
+
                     } else {
                         notification = "Login failed"
                         print("Échec de la connexion : auth = false")

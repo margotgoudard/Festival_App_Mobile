@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7033FDD2BA9CE12005E7FAC /* ListeHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FDC2BA9CE12005E7FAC /* ListeHebergementView.swift */; };
+		B7033FDF2BA9CE3F005E7FAC /* HebergementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FDE2BA9CE3F005E7FAC /* HebergementViewModel.swift */; };
+		B7033FE12BA9CE86005E7FAC /* Hebergement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FE02BA9CE86005E7FAC /* Hebergement.swift */; };
+		B7033FE32BA9CF8D005E7FAC /* HebergementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FE22BA9CF8D005E7FAC /* HebergementResponse.swift */; };
+		B7033FE52BAA201D005E7FAC /* CreateHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FE42BAA201D005E7FAC /* CreateHebergementView.swift */; };
 		B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD802BA21E3900BA2159 /* Festival.swift */; };
 		B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD822BA21E4300BA2159 /* Poste.swift */; };
 		B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD862BA2202600BA2159 /* PosteViewModel.swift */; };
@@ -50,6 +55,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7033FDC2BA9CE12005E7FAC /* ListeHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeHebergementView.swift; sourceTree = "<group>"; };
+		B7033FDE2BA9CE3F005E7FAC /* HebergementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementViewModel.swift; sourceTree = "<group>"; };
+		B7033FE02BA9CE86005E7FAC /* Hebergement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hebergement.swift; sourceTree = "<group>"; };
+		B7033FE22BA9CF8D005E7FAC /* HebergementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementResponse.swift; sourceTree = "<group>"; };
+		B7033FE42BAA201D005E7FAC /* CreateHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHebergementView.swift; sourceTree = "<group>"; };
 		B78FCD802BA21E3900BA2159 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B78FCD822BA21E4300BA2159 /* Poste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poste.swift; sourceTree = "<group>"; };
 		B78FCD862BA2202600BA2159 /* PosteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 				B7E279882BA2684E00987C0A /* JeuViewModel.swift */,
 				B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */,
 				B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */,
+				B7033FDE2BA9CE3F005E7FAC /* HebergementViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -168,6 +179,7 @@
 				B78FCD942BA2F97600BA2159 /* Creneau.swift */,
 				B78FCDA02BA399F100BA2159 /* Notification.swift */,
 				B7A01A6E2BA4A72F002A0C03 /* Supervision.swift */,
+				B7033FE02BA9CE86005E7FAC /* Hebergement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +195,7 @@
 				B78FCD8E2BA2EB5E00BA2159 /* InscriptionResponse.swift */,
 				B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */,
 				B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */,
+				B7033FE22BA9CF8D005E7FAC /* HebergementResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -200,6 +213,8 @@
 				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
 				B78FCD9A2BA3997600BA2159 /* NotificationView.swift */,
 				B7A01A902BA85629002A0C03 /* LoginView.swift */,
+				B7033FDC2BA9CE12005E7FAC /* ListeHebergementView.swift */,
+				B7033FE42BAA201D005E7FAC /* CreateHebergementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +314,7 @@
 			files = (
 				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
 				B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */,
+				B7033FE12BA9CE86005E7FAC /* Hebergement.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
 				B78FCD912BA2EB9100BA2159 /* InscriptionViewModel.swift in Sources */,
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
@@ -318,17 +334,21 @@
 				B78FCD8D2BA23AFC00BA2159 /* PosteDetailView.swift in Sources */,
 				B78FCD952BA2F97600BA2159 /* Creneau.swift in Sources */,
 				B7E2793E2BA18FF000987C0A /* ListeJeuView.swift in Sources */,
+				B7033FE32BA9CF8D005E7FAC /* HebergementResponse.swift in Sources */,
 				B7A01A712BA4A8A2002A0C03 /* SupervisionResponse.swift in Sources */,
 				B7E279462BA190BE00987C0A /* ProfilView.swift in Sources */,
 				B7E279402BA1903600987C0A /* ListePosteView.swift in Sources */,
 				B7E2798F2BA26D5400987C0A /* JeuEspaceResponse.swift in Sources */,
+				B7033FE52BAA201D005E7FAC /* CreateHebergementView.swift in Sources */,
 				B7E279932BA270FD00987C0A /* EspaceDetailView.swift in Sources */,
 				B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */,
+				B7033FDD2BA9CE12005E7FAC /* ListeHebergementView.swift in Sources */,
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
 				B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */,
 				B7A01A912BA85629002A0C03 /* LoginView.swift in Sources */,
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
+				B7033FDF2BA9CE3F005E7FAC /* HebergementViewModel.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
 				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,
