@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B73AD5ED2BA83F71007E1E2E /* FlexibleUserCreneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */; };
+		B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC822BA48205000AF7AA /* PlanningView.swift */; };
+		B774AC852BA487B2000AF7AA /* PlanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */; };
+		B774AC872BA48C01000AF7AA /* CreneauResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC862BA48C01000AF7AA /* CreneauResponse.swift */; };
+		B774AC892BA498C6000AF7AA /* PosteCreneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC882BA498C6000AF7AA /* PosteCreneau.swift */; };
+		B774AC8B2BA499CE000AF7AA /* PosteCreneauComplexe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8A2BA499CE000AF7AA /* PosteCreneauComplexe.swift */; };
+		B774AC8D2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */; };
+		B774AC8F2BA49E4B000AF7AA /* InscriptionSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */; };
 		B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD802BA21E3900BA2159 /* Festival.swift */; };
 		B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD822BA21E4300BA2159 /* Poste.swift */; };
 		B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD862BA2202600BA2159 /* PosteViewModel.swift */; };
@@ -20,7 +28,7 @@
 		B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD962BA3145500BA2159 /* FestivalView.swift */; };
 		B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9A2BA3997600BA2159 /* NotificationView.swift */; };
 		B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */; };
-		B78FCD9F2BA399D700BA2159 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */; };
+		B78FCD9F2BA399D700BA2159 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD9E2BA399D700BA2159 /* NotificationsViewModel.swift */; };
 		B78FCDA12BA399F100BA2159 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCDA02BA399F100BA2159 /* Notification.swift */; };
 		B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792B2BA18E6F00987C0A /* MyApp.swift */; };
 		B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2792D2BA18E6F00987C0A /* ContentView.swift */; };
@@ -43,6 +51,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleUserCreneau.swift; sourceTree = "<group>"; };
+		B774AC822BA48205000AF7AA /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
+		B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningViewModel.swift; sourceTree = "<group>"; };
+		B774AC862BA48C01000AF7AA /* CreneauResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreneauResponse.swift; sourceTree = "<group>"; };
+		B774AC882BA498C6000AF7AA /* PosteCreneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteCreneau.swift; sourceTree = "<group>"; };
+		B774AC8A2BA499CE000AF7AA /* PosteCreneauComplexe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteCreneauComplexe.swift; sourceTree = "<group>"; };
+		B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteCreneauComplexResponse.swift; sourceTree = "<group>"; };
+		B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionSimple.swift; sourceTree = "<group>"; };
 		B78FCD802BA21E3900BA2159 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B78FCD822BA21E4300BA2159 /* Poste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poste.swift; sourceTree = "<group>"; };
 		B78FCD862BA2202600BA2159 /* PosteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteViewModel.swift; sourceTree = "<group>"; };
@@ -56,7 +72,7 @@
 		B78FCD962BA3145500BA2159 /* FestivalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalView.swift; sourceTree = "<group>"; };
 		B78FCD9A2BA3997600BA2159 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
-		B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		B78FCD9E2BA399D700BA2159 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		B78FCDA02BA399F100BA2159 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
@@ -96,7 +112,8 @@
 				B78FCD862BA2202600BA2159 /* PosteViewModel.swift */,
 				B7E279882BA2684E00987C0A /* JeuViewModel.swift */,
 				B78FCD902BA2EB9100BA2159 /* InscriptionViewModel.swift */,
-				B78FCD9E2BA399D700BA2159 /* NotificationsView.swift */,
+				B78FCD9E2BA399D700BA2159 /* NotificationsViewModel.swift */,
+				B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -136,6 +153,10 @@
 				B78FCD922BA2EBD000BA2159 /* Inscription.swift */,
 				B78FCD942BA2F97600BA2159 /* Creneau.swift */,
 				B78FCDA02BA399F100BA2159 /* Notification.swift */,
+				B774AC882BA498C6000AF7AA /* PosteCreneau.swift */,
+				B774AC8A2BA499CE000AF7AA /* PosteCreneauComplexe.swift */,
+				B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */,
+				B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +171,8 @@
 				B7E279902BA26F2F00987C0A /* JeuResponse.swift */,
 				B78FCD8E2BA2EB5E00BA2159 /* InscriptionResponse.swift */,
 				B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */,
+				B774AC862BA48C01000AF7AA /* CreneauResponse.swift */,
+				B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -159,13 +182,14 @@
 			children = (
 				B7E2793D2BA18FF000987C0A /* ListeJeuView.swift */,
 				B7E279392BA18FBB00987C0A /* InscrireView.swift */,
+				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
 				B7E279452BA190BE00987C0A /* ProfilView.swift */,
 				B7E2793B2BA18FD800987C0A /* ListeInscriptionView.swift */,
-				B7E2793F2BA1903600987C0A /* ListePosteView.swift */,
 				B78FCD8C2BA23AFC00BA2159 /* PosteDetailView.swift */,
 				B7E279922BA270FD00987C0A /* EspaceDetailView.swift */,
 				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
 				B78FCD9A2BA3997600BA2159 /* NotificationView.swift */,
+				B774AC822BA48205000AF7AA /* PlanningView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,12 +285,15 @@
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
 				B7E279892BA2684E00987C0A /* JeuViewModel.swift in Sources */,
 				B7E2792E2BA18E6F00987C0A /* ContentView.swift in Sources */,
-				B78FCD9F2BA399D700BA2159 /* NotificationsView.swift in Sources */,
+				B78FCD9F2BA399D700BA2159 /* NotificationsViewModel.swift in Sources */,
 				B78FCDA12BA399F100BA2159 /* Notification.swift in Sources */,
 				B7E2798D2BA26B4700987C0A /* Jeu.swift in Sources */,
 				B78FCD932BA2EBD000BA2159 /* Inscription.swift in Sources */,
 				B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */,
+				B774AC8D2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift in Sources */,
+				B774AC8B2BA499CE000AF7AA /* PosteCreneauComplexe.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
+				B73AD5ED2BA83F71007E1E2E /* FlexibleUserCreneau.swift in Sources */,
 				B78FCD8B2BA2306700BA2159 /* PosteReponse.swift in Sources */,
 				B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */,
 				B7E279912BA26F2F00987C0A /* JeuResponse.swift in Sources */,
@@ -280,11 +307,16 @@
 				B7E2798F2BA26D5400987C0A /* JeuEspaceResponse.swift in Sources */,
 				B7E279932BA270FD00987C0A /* EspaceDetailView.swift in Sources */,
 				B7E2797E2BA1CEB600987C0A /* Navbar.swift in Sources */,
+				B774AC872BA48C01000AF7AA /* CreneauResponse.swift in Sources */,
+				B774AC852BA487B2000AF7AA /* PlanningViewModel.swift in Sources */,
+				B774AC8F2BA49E4B000AF7AA /* InscriptionSimple.swift in Sources */,
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
+				B774AC892BA498C6000AF7AA /* PosteCreneau.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
 				B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */,
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
+				B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
 				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,
 			);

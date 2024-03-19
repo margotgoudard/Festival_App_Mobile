@@ -59,7 +59,7 @@ struct Navbar: View {
                 
                 
                 NavigationView {
-                    ListePosteView(festival: festival)
+                    PlanningView(festival: festival)
                 }
                 .tabItem {
                     Image(systemName: "calendar")
