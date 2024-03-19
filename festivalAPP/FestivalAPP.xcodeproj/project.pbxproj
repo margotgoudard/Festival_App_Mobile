@@ -15,6 +15,9 @@
 		B774AC8B2BA499CE000AF7AA /* PosteCreneauComplexe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8A2BA499CE000AF7AA /* PosteCreneauComplexe.swift */; };
 		B774AC8D2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */; };
 		B774AC8F2BA49E4B000AF7AA /* InscriptionSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */; };
+		B78146232BAA287C001A3409 /* PlanningUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146222BAA287C001A3409 /* PlanningUtils.swift */; };
+		B78146252BAA2AAF001A3409 /* FlexibleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */; };
+		B78146272BAA3C0A001A3409 /* InscriptionSimpleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */; };
 		B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD802BA21E3900BA2159 /* Festival.swift */; };
 		B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD822BA21E4300BA2159 /* Poste.swift */; };
 		B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD862BA2202600BA2159 /* PosteViewModel.swift */; };
@@ -59,6 +62,9 @@
 		B774AC8A2BA499CE000AF7AA /* PosteCreneauComplexe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteCreneauComplexe.swift; sourceTree = "<group>"; };
 		B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteCreneauComplexResponse.swift; sourceTree = "<group>"; };
 		B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionSimple.swift; sourceTree = "<group>"; };
+		B78146222BAA287C001A3409 /* PlanningUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningUtils.swift; sourceTree = "<group>"; };
+		B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleResponse.swift; sourceTree = "<group>"; };
+		B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionSimpleResponse.swift; sourceTree = "<group>"; };
 		B78FCD802BA21E3900BA2159 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B78FCD822BA21E4300BA2159 /* Poste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poste.swift; sourceTree = "<group>"; };
 		B78FCD862BA2202600BA2159 /* PosteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteViewModel.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 				B78FCD9C2BA3999A00BA2159 /* NotificationResponse.swift */,
 				B774AC862BA48C01000AF7AA /* CreneauResponse.swift */,
 				B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */,
+				B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */,
+				B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				B7E279862BA2487F00987C0A /* FestivalUtils.swift */,
+				B78146222BAA287C001A3409 /* PlanningUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,6 +300,8 @@
 				B78FCD932BA2EBD000BA2159 /* Inscription.swift in Sources */,
 				B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */,
 				B774AC8D2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift in Sources */,
+				B78146272BAA3C0A001A3409 /* InscriptionSimpleResponse.swift in Sources */,
+				B78146252BAA2AAF001A3409 /* FlexibleResponse.swift in Sources */,
 				B774AC8B2BA499CE000AF7AA /* PosteCreneauComplexe.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
 				B73AD5ED2BA83F71007E1E2E /* FlexibleUserCreneau.swift in Sources */,
@@ -318,6 +329,7 @@
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
+				B78146232BAA287C001A3409 /* PlanningUtils.swift in Sources */,
 				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

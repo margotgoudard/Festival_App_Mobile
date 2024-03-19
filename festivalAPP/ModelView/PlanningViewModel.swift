@@ -67,6 +67,7 @@ class PlanningViewModel: ObservableObject {
                 let decodedResponse = try decoder.decode(CreneauResponse.self, from: data)
                     DispatchQueue.main.async {
                         self.creneaux = decodedResponse.creneaux
+                   
                         print("Creneaux fetched successfully.")
                     }
                 
@@ -123,6 +124,7 @@ class PlanningViewModel: ObservableObject {
                 let decodedResponse = try decoder.decode(PosteCreneauComplexResponse.self, from: data)
                     DispatchQueue.main.async {
                         self.postescreneaux = decodedResponse.posteCreneau
+        
                         print("posteCreneauComplexe fetched successfully.")
                     }
                 

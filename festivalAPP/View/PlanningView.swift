@@ -11,7 +11,8 @@ struct PlanningView: View {
     @State private var showingConfirmationAlert = false
     @State private var selectedPoste: PosteCreneauComplexe?
     
-    @State private var estFlexible: Bool = false
+    @State private var isChecked: Bool = false
+    @State private var estInscrit: Bool = false
 
     let token = UserDefaults.standard.string(forKey: "token") ?? ""
     let idUser = UserDefaults.standard.integer(forKey: "iduser")
@@ -21,8 +22,6 @@ struct PlanningView: View {
         self.viewModel = PlanningViewModel()
         self.viewModel.fetchCreneauxListe(token: token, idFestival: festival.id)
         self.viewModel.fetchPostesCreneauxListe(token: token, idFestival: festival.id)
-        
-        
     }
 
     var body: some View {
@@ -43,17 +42,66 @@ struct PlanningView: View {
                         // Filtrer les créneaux pour afficher seulement ceux correspondant à la date sélectionnée
                         let selectedDateString = viewModel.datesDistinctes[selectedDateIndex]
                         let creneauxPourDate = viewModel.creneaux.filter { $0.jour == selectedDateString }
+                        let creneau = creneauxPourDate[selectedHoraireIndex]
+                   
 
                         Text("Select a time:")
                         // Afficher les créneaux horaires filtrés
-                        Picker(selection: $selectedHoraireIndex, label: Text("")) {
-                            ForEach(0..<creneauxPourDate.count, id: \.self) { index in
-                                let creneau = creneauxPourDate[index]
-                                Text("\(creneau.heure_debut) - \(creneau.heure_fin)").tag(index)
+                        VStack {
+                            Picker(selection: $selectedHoraireIndex, label: Text("")) {
+                                ForEach(0..<creneauxPourDate.count, id: \.self) { index in
+                                    let creneau = creneauxPourDate[index]
+                                 
+                                        Text("\(creneau.heure_debut) - \(creneau.heure_fin) \(creneau.id)")
+                
+                                }
+                            }
+                            .pickerStyle(MenuPickerStyle())
+                            .onChange(of: selectedHoraireIndex) { newIndex in
+                                let creneau = creneauxPourDate[newIndex]
+                                PlanningUtils.fetchIsFlexible(idcreneau: creneau.id, iduser: idUser, token: token) { isFlexible in
+                                    isChecked=isFlexible
+                                }
+                                PlanningUtils.fetchInscriptionByCreneau(idcreneau: creneau.id, iduser: idUser, token: token) { response in
+                                    print("dela inscrit : ", response)
+                                    estInscrit=response
+                                }
+                            }
+                            .onAppear{
+                                print("debut",creneauxPourDate[selectedHoraireIndex] )
+                                PlanningUtils.fetchIsFlexible(idcreneau: creneau.id, iduser: idUser, token: token) { isFlexible in
+                                    isChecked=isFlexible
+                                }
+                                PlanningUtils.fetchInscriptionByCreneau(idcreneau: creneau.id, iduser: idUser, token: token) { response in
+                                    estInscrit=response
+                                }
                             }
                         }
-                        .pickerStyle(MenuPickerStyle())
-                        
+      
+                        Button(action: {
+                            if isChecked {
+                                PlanningUtils.uncheck(idcreneau: creneau.id, iduser: idUser, token: token) { isFlexible in
+                                    isChecked=isFlexible
+                                }
+                            } else {
+                                PlanningUtils.check(idcreneau: creneau.id, iduser: idUser, token: token) { isFlexible in
+                                    isChecked=isFlexible
+                                }
+                            }
+                        }) {
+                            if !estInscrit {
+                                HStack {
+                                    Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text(isChecked ?"Je suis Flexible":"Devenir bénévole flexible")
+                                }
+                            }else{
+                                Text("Vous êtes déjà inscrit(e) sur ce créneau")
+                            }
+                        }
+                        .padding()
                         
                         let selectedHoraire = creneauxPourDate[selectedHoraireIndex]
                         let postesAvecInscrits = viewModel.postescreneaux.filter { $0.creneau.jour == selectedDateString && $0.creneau.heure_debut == selectedHoraire.heure_debut && $0.creneau.heure_fin == selectedHoraire.heure_fin }
@@ -67,6 +115,7 @@ struct PlanningView: View {
                         let selectedHeureFin = creneauxPourDate[selectedHoraireIndex].heure_fin
 
                         ScrollView {
+                            
                             LazyVGrid(columns: [GridItem(.flexible(), spacing: 16)], spacing: 16) {
                                 Button(action: {
                                     print(" b ")
@@ -86,11 +135,13 @@ struct PlanningView: View {
                                     .cornerRadius(8)
                                     .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                                 }
+                                .disabled(isChecked || estInscrit )
                                 
                                 ForEach(postesSansAnimationJeux.sorted(by: { $0.poste.nom < $1.poste.nom })) { posteCreneau in
                                     Button(action: {
                                         selectedPoste = posteCreneau
                                         self.showingConfirmationAlert = true
+                               
                                     }) {
                                         VStack(spacing: 10) {
                                             Text(posteCreneau.poste.nom)
@@ -106,7 +157,7 @@ struct PlanningView: View {
                                         .background(Color.white)
                                         .cornerRadius(8)
                                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-                                    }
+                                    }.disabled(isChecked || estInscrit)
                                 }
                             }
                         }
@@ -131,8 +182,7 @@ struct PlanningView: View {
                     message: Text("Êtes-vous sûr de vouloir sélectionner ce poste ?"),
                     primaryButton: .default(Text("Oui")) {
                         viewModel.createInscription(posteCreneau: poste, iduser: idUser, token: token)
-                        print("L'utilisateur a sélectionné 'Oui' pour le poste \(poste.poste.nom)")
-                        
+                        estInscrit=true
                     },
                     secondaryButton: .cancel(Text("Annuler"))
                 )
@@ -143,6 +193,9 @@ struct PlanningView: View {
         }
     }
     
+    
+    
+        
     private func fetchPostesCreneaux() {
         guard !viewModel.creneaux.isEmpty else { return }
         let selectedDateString = viewModel.datesDistinctes[selectedDateIndex]

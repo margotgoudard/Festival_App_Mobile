@@ -52,7 +52,6 @@ class JeuViewModel: ObservableObject {
     }
     
     func fetchJeux(forEspaceId espaceId: Int, forFestivalId festivalId:Int) {
-        print("espace    ", espaceId)
         guard let url = URL(string: "https://benevole-app-back.onrender.com/jeu/all?idzonebenevole=\(espaceId)&idfestival=\(festivalId)") else {
                 print("URL is not valid.")
                 return
@@ -88,7 +87,7 @@ class JeuViewModel: ObservableObject {
                         //self.jeux = jeuData.flatMap { $0.Jeu }
                         self.jeuxByZone[espaceId] = jeuData.flatMap { $0.Jeu }
             
-                        print("jeux fetched successfully.")
+                        //print("jeux fetched successfully.")
                     }
             } catch {
                 print("Decoding jeu error: \(error.localizedDescription)")
