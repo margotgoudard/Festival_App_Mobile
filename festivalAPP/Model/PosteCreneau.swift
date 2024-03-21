@@ -6,7 +6,9 @@
 //
 import Foundation
 
-struct PosteCreneau: Codable, Identifiable {
+struct PosteCreneau: Codable {
+    /*
+
     var id: Int {
             get { idpc }
             set { idpc = newValue }
@@ -18,18 +20,15 @@ struct PosteCreneau: Codable, Identifiable {
     var idfestival: Int
     var capacite: Int
     var capacite_restante: Int
+    */
+let idpc: Int
+    let idposte: Int
+    let idcreneau: Int
+    let idzonebenevole: Int
+    let idfestival: Int
+    let capacite: Int
+    let capacite_restante: Int
     
     
     
-    
-    
-    enum CodingKeys: String, CodingKey {
-        case idpc = "idpc"
-        case idposte
-        case idcreneau
-        case idzonebenevole
-        case idfestival
-        case capacite
-        case capacite_restante
-    }
 }

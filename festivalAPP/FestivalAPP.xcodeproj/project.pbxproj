@@ -18,6 +18,8 @@
 		B78146232BAA287C001A3409 /* PlanningUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146222BAA287C001A3409 /* PlanningUtils.swift */; };
 		B78146252BAA2AAF001A3409 /* FlexibleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */; };
 		B78146272BAA3C0A001A3409 /* InscriptionSimpleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */; };
+		B78146292BAB1ABF001A3409 /* EspaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78146282BAB1ABF001A3409 /* EspaceResponse.swift */; };
+		B781462B2BAB1E09001A3409 /* InscriptionAnimationJeu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B781462A2BAB1E09001A3409 /* InscriptionAnimationJeu.swift */; };
 		B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD802BA21E3900BA2159 /* Festival.swift */; };
 		B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD822BA21E4300BA2159 /* Poste.swift */; };
 		B78FCD872BA2202600BA2159 /* PosteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FCD862BA2202600BA2159 /* PosteViewModel.swift */; };
@@ -65,6 +67,8 @@
 		B78146222BAA287C001A3409 /* PlanningUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningUtils.swift; sourceTree = "<group>"; };
 		B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleResponse.swift; sourceTree = "<group>"; };
 		B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionSimpleResponse.swift; sourceTree = "<group>"; };
+		B78146282BAB1ABF001A3409 /* EspaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspaceResponse.swift; sourceTree = "<group>"; };
+		B781462A2BAB1E09001A3409 /* InscriptionAnimationJeu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionAnimationJeu.swift; sourceTree = "<group>"; };
 		B78FCD802BA21E3900BA2159 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B78FCD822BA21E4300BA2159 /* Poste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poste.swift; sourceTree = "<group>"; };
 		B78FCD862BA2202600BA2159 /* PosteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosteViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				B774AC8C2BA49C48000AF7AA /* PosteCreneauComplexResponse.swift */,
 				B78146242BAA2AAF001A3409 /* FlexibleResponse.swift */,
 				B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */,
+				B78146282BAB1ABF001A3409 /* EspaceResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				B78FCD962BA3145500BA2159 /* FestivalView.swift */,
 				B78FCD9A2BA3997600BA2159 /* NotificationView.swift */,
 				B774AC822BA48205000AF7AA /* PlanningView.swift */,
+				B781462A2BAB1E09001A3409 /* InscriptionAnimationJeu.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B781462B2BAB1E09001A3409 /* InscriptionAnimationJeu.swift in Sources */,
 				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
 				B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
@@ -328,6 +335,7 @@
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */,
+				B78146292BAB1ABF001A3409 /* EspaceResponse.swift in Sources */,
 				B78FCD812BA21E3900BA2159 /* Festival.swift in Sources */,
 				B78146232BAA287C001A3409 /* PlanningUtils.swift in Sources */,
 				B78FCD9B2BA3997600BA2159 /* NotificationView.swift in Sources */,

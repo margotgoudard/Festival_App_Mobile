@@ -13,6 +13,8 @@ struct PlanningView: View {
     
     @State private var isChecked: Bool = false
     @State private var estInscrit: Bool = false
+    
+    @State private var showModal = false
 
     let token = UserDefaults.standard.string(forKey: "token") ?? ""
     let idUser = UserDefaults.standard.integer(forKey: "iduser")
@@ -119,6 +121,7 @@ struct PlanningView: View {
                             LazyVGrid(columns: [GridItem(.flexible(), spacing: 16)], spacing: 16) {
                                 Button(action: {
                                     print(" b ")
+                                    showModal = true
                                 }) {
                                     VStack(spacing: 10) {
                                         Text("Animation jeux")
@@ -136,6 +139,10 @@ struct PlanningView: View {
                                     .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                                 }
                                 .disabled(isChecked || estInscrit )
+                                .sheet(isPresented: $showModal) {
+                                            // Vue modale à afficher lorsque le bouton est cliqué
+                                    InscriptionAnimationJeu(festival: festival, creneau : creneauxPourDate[selectedHoraireIndex])
+                                        }
                                 
                                 ForEach(postesSansAnimationJeux.sorted(by: { $0.poste.nom < $1.poste.nom })) { posteCreneau in
                                     Button(action: {
@@ -183,6 +190,7 @@ struct PlanningView: View {
                     primaryButton: .default(Text("Oui")) {
                         viewModel.createInscription(posteCreneau: poste, iduser: idUser, token: token)
                         estInscrit=true
+                        
                     },
                     secondaryButton: .cancel(Text("Annuler"))
                 )

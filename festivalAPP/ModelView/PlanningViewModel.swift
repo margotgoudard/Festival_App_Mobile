@@ -124,7 +124,7 @@ class PlanningViewModel: ObservableObject {
                 let decodedResponse = try decoder.decode(PosteCreneauComplexResponse.self, from: data)
                     DispatchQueue.main.async {
                         self.postescreneaux = decodedResponse.posteCreneau
-        
+            
                         print("posteCreneauComplexe fetched successfully.")
                     }
                 
