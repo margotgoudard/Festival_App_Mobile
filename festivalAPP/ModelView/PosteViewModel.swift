@@ -35,7 +35,6 @@ class PosteViewModel: ObservableObject {
             }
             let decoder = JSONDecoder()
             let jsonString = String(data: data, encoding: .utf8)
-            print(jsonString)
             do {
         
                 let decodedResponse = try decoder.decode(PosteReponse.self, from: data)

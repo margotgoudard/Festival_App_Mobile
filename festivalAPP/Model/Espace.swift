@@ -12,4 +12,11 @@ struct Espace: Codable,Identifiable,Equatable {
         case idzoneplan
         case idposte
     }
+    init() {
+           
+            self.idposte = 0
+            self.nom=""
+            self.idzoneplan = 0
+            self.id = 0
+        }
 }

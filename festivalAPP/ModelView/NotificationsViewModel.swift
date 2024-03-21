@@ -42,9 +42,10 @@ class NotificationsViewModel: ObservableObject {
                 print("No data received.")
                 return
             }
+            /*
             if let jsonString = String(data: data, encoding: .utf8) {
                 print(jsonString)
-            }
+            }*/
             do {
                 let decoder = JSONDecoder()
                 let decodedResponse = try decoder.decode(NotificationResponse.self, from: data)
