@@ -6,12 +6,26 @@ struct ProfilView: View {
     @ObservedObject private var festivalUtils: FestivalUtils
     @State private var selectedFestivalForDetails: Festival?
     @State private var dropdownTitle = "Sélectionnez un festival"
+    @State private var estDeconnecte = false
+
     
     init(festivalUtils: FestivalUtils, user: User) {
         self._festivalUtils = ObservedObject(initialValue: festivalUtils)
         self._user = State(initialValue: user)
     }
 
+    func deconnexion() {
+        UserDefaults.standard.set("", forKey: "token")
+        estDeconnecte = true
+    }
+    
+    private func categoryTitle(_ title: String) -> some View {
+        Text(title)
+            .font(.title2)
+            .fontWeight(.semibold)
+            .padding(.vertical)
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -30,15 +44,15 @@ struct ProfilView: View {
                 .cornerRadius(10)
 
                 if let festivalToDisplay = selectedFestivalForDetails {
-                    NavigationLink(destination: FestivalView(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
+                    NavigationLink(destination: Navbar(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
                 }
                 
                 Spacer()
                 
                 Button("deconnexion") {
-                    UserDefaults.standard.set("", forKey: "token")
-                    // Je veux repartir sur la contentview
+                    deconnexion()
                 }
+                NavigationLink(destination: ContentView(), isActive: $estDeconnecte) { EmptyView() }
             }
             .padding()
             
@@ -48,58 +62,92 @@ struct ProfilView: View {
         .onAppear {
             dropdownTitle = "Sélectionnez un festival"
             selectedFestivalForDetails = nil
-        }
+        } .navigationBarBackButtonHidden(true)
     }
 
-    // Extracted the profile form to a computed property for better readability
+    
     private var profileForm: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Profil").font(.largeTitle).fontWeight(.bold)
                 
+                categoryTitle("Informations personnelles")
                 Group {
                     ProfileTextField(label: "Nom", text: $user.nom)
                     ProfileTextField(label: "Prénom", text: $user.prenom)
                     ProfileTextField(label: "Pseudo", text: $user.pseudo)
                     ProfileTextField(label: "Email", text: $user.mail)
                     ProfileTextField(label: "Téléphone", text: $user.tel)
-                    ProfileTextField(label: "Association", text: $user.association)
-                    ProfileTextField(label: "Jeu préféré", text: $user.jeu_prefere)
-                    ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
-                    ProfileTextField(label: "Hébergement", text: $user.hebergement)
                 }
                 
-                Toggle(isOn: $user.est_vegetarien) {
-                    Text(user.est_vegetarien ? "Oui" : "Non").bold()
+                Divider()
+                
+                categoryTitle("Préférences")
+                Toggle(isOn: Binding<Bool>(
+                    get: { self.user.est_vegetarien ?? false },
+                    set: { self.user.est_vegetarien = $0 }
+                )) {
+                    Text(user.est_vegetarien ?? false ? "Végétarien" : "Non Végétarien").bold()
+                }
+                ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
+                
+                Divider()
+                
+                categoryTitle("Autres informations")
+                Group {
+                    ProfileTextFieldOptional(label: "Association", text: $user.association)
+                    ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
+                    ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
                 }
                 
-                Button(action: {
-                    updateUserInfo(user)
-                }) {
-                    Text("Enregistrer les modifications")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
+            }
+            .padding()
+            HStack {
+            Button(action: {
+                updateUserInfo(user)
+            }) {
+                Text("Enregistrer les modifications")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
             }
             .padding()
         }
     }
 }
     
-    struct ProfileTextField: View {
-        var label: String
-        @Binding var text: String
-        
-        var body: some View {
-            HStack {
-                Text("\(label):").bold()
-                Spacer()
-                TextField(label, text: $text)
-            }
+struct ProfileTextField: View {
+    var label: String
+    @Binding var text: String
+
+    var body: some View {
+        HStack {
+            Text("\(label):").bold()
+            Spacer()
+            TextField(label, text: $text)
         }
     }
+}
+
+struct ProfileTextFieldOptional: View {
+    var label: String
+    @Binding var text: String?
+
+    var body: some View {
+        HStack {
+            Text("\(label):").bold()
+            Spacer()
+            TextField(label, text: Binding<String>(
+                get: { self.text ?? "" },
+                set: { newValue in self.text = newValue.isEmpty ? nil : newValue }
+            ))
+        }
+    }
+}
+
+
 
 func updateUserInfo(_ updatedUser: User) {
     guard let jsonData = try? JSONEncoder().encode(updatedUser) else {

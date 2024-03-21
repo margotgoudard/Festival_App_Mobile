@@ -5,6 +5,7 @@ struct FestivalView: View {
    
 
     var body: some View {
+        
         Text(festival.nom)
         
         
