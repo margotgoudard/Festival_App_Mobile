@@ -94,10 +94,10 @@
 		B7A01A6E2BA4A72F002A0C03 /* Supervision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supervision.swift; sourceTree = "<group>"; };
 		B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisionResponse.swift; sourceTree = "<group>"; };
 		B7A01A7B2BA84A21002A0C03 /* FestivalAPP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = FestivalAPP.xcodeproj; sourceTree = "<group>"; };
-		B7A01A8A2BA853B0002A0C03 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../../Downloads/placeholder.png; sourceTree = "<group>"; };
+		B7A01A8A2BA853B0002A0C03 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = SOURCE_ROOT; };
 		B7A01A902BA85629002A0C03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B7A01A932BA85684002A0C03 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		B7A01A952BA857AB002A0C03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../Downloads/logo.png; sourceTree = "<group>"; };
+		B7A01A952BA857AB002A0C03 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		B7E279282BA18E6F00987C0A /* FestivalAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestivalAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2792B2BA18E6F00987C0A /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		B7E2792D2BA18E6F00987C0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
