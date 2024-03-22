@@ -141,7 +141,7 @@ class PlanningViewModel: ObservableObject {
         task.resume()
     }
     
-    func createInscription(posteCreneau: PosteCreneauComplexe,iduser: Int, token: String){
+    func createInscription(idfestival : Int, idcreneau : Int, idposte: Int, iduser: Int, token: String){
         
         guard let url = URL(string: "https://benevole-app-back.onrender.com/inscription/create") else {
             print("URL is not valid.")
@@ -149,7 +149,7 @@ class PlanningViewModel: ObservableObject {
         }
         
         // Création des données JSON
-        let jsonData = ["iduser": iduser, "idcreneau": posteCreneau.idcreneau, "idposte": posteCreneau.idposte, "idfestival": posteCreneau.idfestival, "idzonebenevole": nil]
+        let jsonData = ["iduser": iduser, "idcreneau": idcreneau, "idposte": idposte, "idfestival": idfestival, "idzonebenevole": nil]
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonData, options: [])

@@ -18,7 +18,7 @@ struct EspaceComplexeResponse: Codable {
     let espaces: [EspaceAvecPosteCreneau]
 }
 
-struct EspaceAvecPosteCreneau: Codable {
+struct EspaceAvecPosteCreneau: Codable, Hashable, Equatable {
     let idzonebenevole: Int
     let nom: String
     let idposte: Int
@@ -34,4 +34,17 @@ struct EspaceAvecPosteCreneau: Codable {
             self.Inscriptions = []
             self.PosteCreneaus = []
         }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(idzonebenevole)
+        hasher.combine(nom)
+        hasher.combine(idposte)
+        hasher.combine(idzoneplan)
+    }
+    
+    static func == (lhs: EspaceAvecPosteCreneau, rhs: EspaceAvecPosteCreneau) -> Bool {
+        return lhs.idzonebenevole == rhs.idzonebenevole &&
+               lhs.nom == rhs.nom &&
+               lhs.idposte == rhs.idposte &&
+               lhs.idzoneplan == rhs.idzoneplan
+    }
 }
