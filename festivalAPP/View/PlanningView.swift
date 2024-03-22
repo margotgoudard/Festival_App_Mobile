@@ -15,6 +15,7 @@ struct PlanningView: View {
     @State private var estInscrit: Bool = false
     
     @State private var showModal = false
+    @State private var showingInscriptionAnimationJeu = false
 
     let token = UserDefaults.standard.string(forKey: "token") ?? ""
     let idUser = UserDefaults.standard.integer(forKey: "iduser")
@@ -65,12 +66,10 @@ struct PlanningView: View {
                                     isChecked=isFlexible
                                 }
                                 PlanningUtils.fetchInscriptionByCreneau(idcreneau: creneau.id, iduser: idUser, token: token) { response in
-                                    print("dela inscrit : ", response)
                                     estInscrit=response
                                 }
                             }
                             .onAppear{
-                                print("debut",creneauxPourDate[selectedHoraireIndex] )
                                 PlanningUtils.fetchIsFlexible(idcreneau: creneau.id, iduser: idUser, token: token) { isFlexible in
                                     isChecked=isFlexible
                                 }
@@ -120,7 +119,6 @@ struct PlanningView: View {
                             
                             LazyVGrid(columns: [GridItem(.flexible(), spacing: 16)], spacing: 16) {
                                 Button(action: {
-                                    print(" b ")
                                     showModal = true
                                 }) {
                                     VStack(spacing: 10) {
@@ -141,7 +139,12 @@ struct PlanningView: View {
                                 .disabled(isChecked || estInscrit )
                                 .sheet(isPresented: $showModal) {
                                             // Vue modale à afficher lorsque le bouton est cliqué
-                                    InscriptionAnimationJeu(festival: festival, creneau : creneauxPourDate[selectedHoraireIndex])
+                                    InscriptionAnimationJeu(festival: festival, creneau : creneauxPourDate[selectedHoraireIndex]){ success in
+                                        // Traitement en fonction de la valeur retournée (success)
+                                        if success {
+                                            self.estInscrit = true
+                                        } 
+                                    }
                                         }
                                 
                                 ForEach(postesSansAnimationJeux.sorted(by: { $0.poste.nom < $1.poste.nom })) { posteCreneau in
@@ -188,7 +191,10 @@ struct PlanningView: View {
                     title: Text("Confirmation"),
                     message: Text("Êtes-vous sûr de vouloir sélectionner ce poste ?"),
                     primaryButton: .default(Text("Oui")) {
-                        viewModel.createInscription(posteCreneau: poste, iduser: idUser, token: token)
+                        let idfestival = poste.idfestival
+                        let idcreneau = poste.idcreneau
+                        let idposte = poste.idposte
+                        viewModel.createInscription(idfestival : idfestival, idcreneau : idcreneau, idposte: idposte, iduser: idUser, token: token)
                         estInscrit=true
                         
                     },

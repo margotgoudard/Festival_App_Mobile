@@ -90,7 +90,6 @@ class PlanningUtils: ObservableObject {
             let jsonString = String(data: data, encoding: .utf8)
             
             
-            print("jsonstring      ", jsonString)
             do {
                 let decodedResponse = try decoder.decode(EspaceComplexeResponse.self, from: data)
         
