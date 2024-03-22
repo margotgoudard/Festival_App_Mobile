@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7033FEE2BAE0CDC005E7FAC /* HebergementModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FED2BAE0CDC005E7FAC /* HebergementModelView.swift */; };
+		B7033FF02BAE0CFC005E7FAC /* ListeHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FEF2BAE0CFC005E7FAC /* ListeHebergementView.swift */; };
+		B7033FF22BAE0D14005E7FAC /* CreateHebergementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FF12BAE0D14005E7FAC /* CreateHebergementView.swift */; };
+		B7033FF42BAE0D29005E7FAC /* HebergementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FF32BAE0D29005E7FAC /* HebergementResponse.swift */; };
+		B7033FF62BAE0D3F005E7FAC /* Hebergement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7033FF52BAE0D3F005E7FAC /* Hebergement.swift */; };
 		B73AD5ED2BA83F71007E1E2E /* FlexibleUserCreneau.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */; };
 		B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC822BA48205000AF7AA /* PlanningView.swift */; };
 		B774AC852BA487B2000AF7AA /* PlanningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */; };
@@ -64,6 +69,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7033FED2BAE0CDC005E7FAC /* HebergementModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementModelView.swift; sourceTree = "<group>"; };
+		B7033FEF2BAE0CFC005E7FAC /* ListeHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeHebergementView.swift; sourceTree = "<group>"; };
+		B7033FF12BAE0D14005E7FAC /* CreateHebergementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHebergementView.swift; sourceTree = "<group>"; };
+		B7033FF32BAE0D29005E7FAC /* HebergementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HebergementResponse.swift; sourceTree = "<group>"; };
+		B7033FF52BAE0D3F005E7FAC /* Hebergement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hebergement.swift; sourceTree = "<group>"; };
 		B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleUserCreneau.swift; sourceTree = "<group>"; };
 		B774AC822BA48205000AF7AA /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
 		B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 				B78FCD9E2BA399D700BA2159 /* NotificationsViewModel.swift */,
 				B774AC842BA487B2000AF7AA /* PlanningViewModel.swift */,
 				B78146312BACDB62001A3409 /* InscriptionAnimationJeuViewModel.swift */,
+				B7033FED2BAE0CDC005E7FAC /* HebergementModelView.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 				B774AC8E2BA49E4B000AF7AA /* InscriptionSimple.swift */,
 				B73AD5EC2BA83F71007E1E2E /* FlexibleUserCreneau.swift */,
 				B7A01A6E2BA4A72F002A0C03 /* Supervision.swift */,
+				B7033FF52BAE0D3F005E7FAC /* Hebergement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +234,7 @@
 				B78146262BAA3C0A001A3409 /* InscriptionSimpleResponse.swift */,
 				B78146282BAB1ABF001A3409 /* EspaceResponse.swift */,
 				B7A01A702BA4A8A2002A0C03 /* SupervisionResponse.swift */,
+				B7033FF32BAE0D29005E7FAC /* HebergementResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -241,6 +254,8 @@
 				B774AC822BA48205000AF7AA /* PlanningView.swift */,
 				B781462A2BAB1E09001A3409 /* InscriptionAnimationJeu.swift */,
 				B7A01A902BA85629002A0C03 /* LoginView.swift */,
+				B7033FEF2BAE0CFC005E7FAC /* ListeHebergementView.swift */,
+				B7033FF12BAE0D14005E7FAC /* CreateHebergementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +357,7 @@
 				B781462B2BAB1E09001A3409 /* InscriptionAnimationJeu.swift in Sources */,
 				B78FCD972BA3145500BA2159 /* FestivalView.swift in Sources */,
 				B78FCD9D2BA3999A00BA2159 /* NotificationResponse.swift in Sources */,
+				B7033FEE2BAE0CDC005E7FAC /* HebergementModelView.swift in Sources */,
 				B78FCD832BA21E4300BA2159 /* Poste.swift in Sources */,
 				B78FCD912BA2EB9100BA2159 /* InscriptionViewModel.swift in Sources */,
 				B7E279872BA2487F00987C0A /* FestivalUtils.swift in Sources */,
@@ -359,6 +375,7 @@
 				B774AC8B2BA499CE000AF7AA /* PosteCreneauComplexe.swift in Sources */,
 				B7E2792C2BA18E6F00987C0A /* MyApp.swift in Sources */,
 				B73AD5ED2BA83F71007E1E2E /* FlexibleUserCreneau.swift in Sources */,
+				B7033FF22BAE0D14005E7FAC /* CreateHebergementView.swift in Sources */,
 				B78FCD8B2BA2306700BA2159 /* PosteReponse.swift in Sources */,
 				B7E2793A2BA18FBB00987C0A /* InscrireView.swift in Sources */,
 				B7E279912BA26F2F00987C0A /* JeuResponse.swift in Sources */,
@@ -379,9 +396,12 @@
 				B7E2793C2BA18FD800987C0A /* ListeInscriptionView.swift in Sources */,
 				B774AC892BA498C6000AF7AA /* PosteCreneau.swift in Sources */,
 				B7E279482BA190EF00987C0A /* User.swift in Sources */,
+				B7033FF62BAE0D3F005E7FAC /* Hebergement.swift in Sources */,
+				B7033FF42BAE0D29005E7FAC /* HebergementResponse.swift in Sources */,
 				B78FCD892BA22D9700BA2159 /* FestivalResponse.swift in Sources */,
 				B7A01A912BA85629002A0C03 /* LoginView.swift in Sources */,
 				B7E2798B2BA268FE00987C0A /* Espace.swift in Sources */,
+				B7033FF02BAE0CFC005E7FAC /* ListeHebergementView.swift in Sources */,
 				B7E279422BA1905300987C0A /* LoginResponse.swift in Sources */,
 				B774AC832BA48205000AF7AA /* PlanningView.swift in Sources */,
 				B78146292BAB1ABF001A3409 /* EspaceResponse.swift in Sources */,

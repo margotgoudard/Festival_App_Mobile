@@ -66,8 +66,17 @@ struct Navbar: View {
                     Text("Planning")
                 }
                 .tag(6)
+                
+                NavigationView {
+                    ListeHebergementView(festival: festival)
+                }
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Hebergement")
+                }
+                .tag(6)
             }
-            .accentColor(.blue) // Modifier la couleur de l'élément sélectionné ici
+            .accentColor(.blue)
             
         }
         
