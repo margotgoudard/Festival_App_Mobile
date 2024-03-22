@@ -135,6 +135,65 @@ class HebergementViewModel: ObservableObject {
                 return
             }
             print("Hebergement created successfully.")
+            DispatchQueue.main.async {
+                self.fetchHebergements(forFestivalId: hebergement.idfestival)
+                self.fetchHebergementsByUser(userId: UserDefaults.standard.integer(forKey: "iduser"), idfestival: hebergement.idfestival)
+               }
         }.resume()
     }
+    
+    func deleteHebergements(idhebergement: Int, index: IndexSet) {
+        
+        guard let url = URL(string: "https://benevole-app-back.onrender.com/hebergement/delete/\(idhebergement)") else {
+            print("URL is not valid.")
+            return
+        }
+        
+        let jsonData = ["idhebergement": idhebergement]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonData, options: [])
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            
+            if let token = getAuthToken() {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } else {
+                print("Authentication token not found.")
+                return
+            }
+            
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error deleting hebergement: \(error)")
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    print("Invalid response")
+                    return
+                }
+                
+                if httpResponse.statusCode == 200 {
+                    print("Hebergement deleted successfully.")
+    
+                    self.userhebergements.remove(atOffsets: index)
+                    self.objectWillChange.send()
+                    
+                    
+                } else {
+                    print("Failed to delete hebergement. Status code: \(httpResponse.statusCode)")
+                }
+            }
+            
+            task.resume()
+        } catch {
+            print("Error serializing JSON: \(error.localizedDescription)")
+        }
+    }
+
 }
