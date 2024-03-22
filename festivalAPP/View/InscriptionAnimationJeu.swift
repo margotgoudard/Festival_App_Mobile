@@ -4,7 +4,7 @@ struct InscriptionAnimationJeu: View {
     @ObservedObject var planningViewModel: PlanningViewModel
     @State private var selectedZone: EspaceAvecPosteCreneau
     @State private var showingConfirmationAlert = false
-    @State private var reloadView = false
+
     
     var completion: ((Bool) -> Void)
    
@@ -79,10 +79,11 @@ struct InscriptionAnimationJeu: View {
                                 let idfestival = selectedZone.PosteCreneaus[0].idfestival
                                 let idcreneau = selectedZone.PosteCreneaus[0].idcreneau
                                 let idposte = selectedZone.idposte
-                                planningViewModel.createInscription(idfestival : idfestival, idcreneau : idcreneau, idposte: idposte, iduser: idUser, token: token)
+                                let idzonebenevole = selectedZone.idzonebenevole
+                                planningViewModel.createInscriptionZone(idzonebenevole:idzonebenevole,idfestival : idfestival, idcreneau : idcreneau, idposte: idposte, iduser: idUser, token: token)
                                 self.showingConfirmationAlert = false
                                 completion(true)
-                                reloadView.toggle()
+                     
                                 
                             },
                             secondaryButton: .cancel(Text("Annuler"))
@@ -90,7 +91,7 @@ struct InscriptionAnimationJeu: View {
                     }
                 }
             }
-        } .id(reloadView)
+        } 
     }
        
 }
