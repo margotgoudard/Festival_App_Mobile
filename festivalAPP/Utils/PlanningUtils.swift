@@ -89,6 +89,24 @@ class PlanningUtils: ObservableObject {
             let decoder = JSONDecoder()
             let jsonString = String(data: data, encoding: .utf8)
             
+            if let error = error {
+                    print("Error fetching data: \(error.localizedDescription)")
+                    return
+                }
+    
+                
+                do {
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(jsonObject) // This will print the whole JSON response as is.
+                    
+                    // If you want to pretty print the JSON:
+                    let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
+                    }
+                } catch {
+                    print("Error serializing JSON: \(error)")
+                }
             
             do {
                 let decodedResponse = try decoder.decode(EspaceComplexeResponse.self, from: data)

@@ -23,7 +23,7 @@ struct EspaceAvecPosteCreneau: Codable, Hashable, Equatable {
     let nom: String
     let idposte: Int
     let idzoneplan: Int?
-    let Inscriptions: [Inscription]
+    let Inscriptions: [InscriptionSimple]
     let PosteCreneaus: [PosteCreneau]
     
     init() {
@@ -34,6 +34,7 @@ struct EspaceAvecPosteCreneau: Codable, Hashable, Equatable {
             self.Inscriptions = []
             self.PosteCreneaus = []
         }
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(idzonebenevole)
         hasher.combine(nom)
