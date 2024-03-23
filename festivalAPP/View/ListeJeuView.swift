@@ -15,8 +15,14 @@ struct ListeJeuView: View {
         VStack {
             if festival.valide {
                 List(viewModel.espaces, id: \.id) { espace in
-                    Button(espace.nom) {
+                    Button(action: {
                         self.selectedEspace = espace
+                    }) {
+                        HStack {
+                            Text(espace.nom)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
                     }
                 }
                 .sheet(item: $selectedEspace) { espace in

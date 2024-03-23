@@ -46,14 +46,14 @@ struct PlanningView: View {
                         let creneau = creneauxPourDate[selectedHoraireIndex]
                    
 
-                        Text("Select a time:")
+                        Text("Choisir un créneau:")
                         // Afficher les créneaux horaires filtrés
                         VStack {
                             Picker(selection: $selectedHoraireIndex, label: Text("")) {
                                 ForEach(0..<creneauxPourDate.count, id: \.self) { index in
                                     let creneau = creneauxPourDate[index]
                                  
-                                        Text("\(creneau.heure_debut) - \(creneau.heure_fin) \(creneau.id)")
+                                        Text("\(creneau.heure_debut) - \(creneau.heure_fin)")
                 
                                 }
                             }
