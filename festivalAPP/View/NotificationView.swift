@@ -3,7 +3,6 @@ import SwiftUI
 struct NotificationView: View {
     
     @ObservedObject var viewModel: NotificationsViewModel
-    @ObservedObject private var festivalUtils = FestivalUtils()
     var festival: Festival
    
     init(festival: Festival, viewModel:NotificationsViewModel){
