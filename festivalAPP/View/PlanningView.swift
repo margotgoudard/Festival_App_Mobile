@@ -23,8 +23,6 @@ struct PlanningView: View {
     init(festival: Festival) {
         self.festival = festival
         self.viewModel = PlanningViewModel()
-        self.viewModel.fetchCreneauxListe(token: token, idFestival: festival.id)
-        self.viewModel.fetchPostesCreneauxListe(token: token, idFestival: festival.id)
     }
 
     var body: some View {
@@ -180,6 +178,8 @@ struct PlanningView: View {
         .padding()
         .onAppear {
             fetchPostesCreneaux()
+            self.viewModel.fetchCreneauxListe(token: token, idFestival: festival.id)
+            self.viewModel.fetchPostesCreneauxListe(token: token, idFestival: festival.id)
         }
         // Affichez la pop-up si showingConfirmationAlert est vrai
         .alert(isPresented: $showingConfirmationAlert) {
