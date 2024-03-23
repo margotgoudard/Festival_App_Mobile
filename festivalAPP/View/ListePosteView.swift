@@ -14,11 +14,15 @@ struct ListePosteView: View {
         NavigationView {
             VStack {
                 if(festival.valide){
-                    List(viewModel.postes) { poste in
+                    List(viewModel.postes, id: \.id) { poste in
                         Button(action: {
                             self.selectedPoste = poste
                         }) {
-                            Text(poste.nom)
+                            HStack {
+                                Text(poste.nom)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
                         }
                     }
                 } else {
