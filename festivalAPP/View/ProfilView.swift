@@ -19,103 +19,95 @@ struct ProfilView: View {
         estDeconnecte = true
     }
     
-    private func categoryTitle(_ title: String) -> some View {
-        Text(title)
-            .font(.title2)
-            .fontWeight(.semibold)
-            .padding(.vertical)
-    }
     
     var body: some View {
-        VStack {
-            HStack {
-                Menu(dropdownTitle) {
-                    ForEach(festivalUtils.festivals) { festival in
+           VStack {
+               Menu {
+                   ForEach(festivalUtils.festivals) { festival in
+                       Button(festival.nom) {
+                           selectedFestivalForDetails = festival
+                           dropdownTitle = festival.nom
+                       }
+                   }
+               } label: {
+                   HStack {
+                       Text(dropdownTitle)
+                           .foregroundColor(.blue) // Changez ici pour la couleur de texte désirée
+                       Image(systemName: "chevron.down") // Chevron vers le bas
+                   }
+                   .padding()
+                   .frame(maxWidth: .infinity)
+                   .cornerRadius(10)
+               }
+               .padding(.horizontal)
+
+               if let festivalToDisplay = selectedFestivalForDetails {
+                   NavigationLink(destination: Navbar(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
+               }
+
+               VStack {
+                   InitialsCircleView(initials: "\(user.prenom.prefix(1))\(user.nom.prefix(1))")
+                                  .frame(maxWidth: .infinity)
+                                  .background(Color(UIColor.systemGroupedBackground))
+                                  .padding(.top, 20)
                         
-                        Button("\(festival.nom)") {
-                            selectedFestivalForDetails = festival
-                            dropdownTitle = "\(festival.nom)"
-                        }
-                    }
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(10)
+               List {
+                  
+                   Section(header: Text("Informations Personnelles")) {
+                   ProfileTextField(label: "Nom", text: $user.nom)
+                   ProfileTextField(label: "Prénom", text: $user.prenom)
+                   ProfileTextField(label: "Pseudo", text: $user.pseudo)
+                   ProfileTextField(label: "Email", text: $user.mail)
+                   ProfileTextField(label: "Téléphone", text: $user.tel)
+                   }
+                   
+                   Section(header: Text("Préférences")) {
 
-                if let festivalToDisplay = selectedFestivalForDetails {
-                    NavigationLink(destination: Navbar(festival: festivalToDisplay), isActive: .constant(true)) { EmptyView() }
-                }
-                
-                Spacer()
-                
-                Button("deconnexion") {
-                    deconnexion()
-                }
-                NavigationLink(destination: ContentView(), isActive: $estDeconnecte) { EmptyView() }
-            }
-            .padding()
-            
-            
-            profileForm
-        }
-        .onAppear {
-            dropdownTitle = "Sélectionnez un festival"
-            selectedFestivalForDetails = nil
-        } .navigationBarBackButtonHidden(true)
-    }
+                   Toggle(isOn: Binding<Bool>(
+                       get: { self.user.est_vegetarien ?? false },
+                       set: { self.user.est_vegetarien = $0 }
+                   )) {
+                       Text(user.est_vegetarien ?? false ? "Végétarien" : "Non Végétarien")
+                   }
+                   ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
+                   }
+                   Section(header: Text("Autres Informations")) {
 
-    
-    private var profileForm: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Text("Profil").font(.largeTitle).fontWeight(.bold)
-                
-                categoryTitle("Informations personnelles")
-                Group {
-                    ProfileTextField(label: "Nom", text: $user.nom)
-                    ProfileTextField(label: "Prénom", text: $user.prenom)
-                    ProfileTextField(label: "Pseudo", text: $user.pseudo)
-                    ProfileTextField(label: "Email", text: $user.mail)
-                    ProfileTextField(label: "Téléphone", text: $user.tel)
-                }
-                
-                Divider()
-                
-                categoryTitle("Préférences")
-                Toggle(isOn: Binding<Bool>(
-                    get: { self.user.est_vegetarien ?? false },
-                    set: { self.user.est_vegetarien = $0 }
-                )) {
-                    Text(user.est_vegetarien ?? false ? "Végétarien" : "Non Végétarien").bold()
-                }
-                ProfileTextField(label: "Taille de T-Shirt", text: $user.taille_tshirt)
-                
-                Divider()
-                
-                categoryTitle("Autres informations")
-                Group {
-                    ProfileTextFieldOptional(label: "Association", text: $user.association)
-                    ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
-                    ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
-                }
-                
-            }
-            .padding()
-            HStack {
-            Button(action: {
-                updateUserInfo(user)
-            }) {
-                Text("Enregistrer les modifications")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-            }
-            .padding()
-        }
-    }
+                   ProfileTextFieldOptional(label: "Association", text: $user.association)
+                   ProfileTextFieldOptional(label: "Jeu préféré", text: $user.jeu_prefere)
+                   ProfileTextFieldOptional(label: "Hébergement", text: $user.hebergement)
+                   }
+               }.padding(.top, 0)
+                   
+               }
+               .background(Color(UIColor.systemGroupedBackground))
+               .onAppear {
+                   dropdownTitle = "Sélectionnez un festival"
+                   selectedFestivalForDetails = nil
+               }
+               
+               Button(action: {
+                   updateUserInfo(user)
+               }) {
+                   Text("Enregistrer les modifications")
+                       .padding()
+                       .foregroundColor(.blue)
+                       .background(Color.white)
+                       .cornerRadius(10)
+               }
+               
+               NavigationLink(destination: ContentView(), isActive: $estDeconnecte) {
+                               Button("Déconnexion") {
+                                   deconnexion()
+                               }
+                               .padding()
+                               .foregroundColor(.red)
+                               .background(Color.white)
+                               .cornerRadius(10)
+                           }
+                       }
+                       .navigationBarBackButtonHidden(true)
+       }
 }
     
 struct ProfileTextField: View {
@@ -124,7 +116,7 @@ struct ProfileTextField: View {
 
     var body: some View {
         HStack {
-            Text("\(label):").bold()
+            Text("\(label):")
             Spacer()
             TextField(label, text: $text)
         }
@@ -137,7 +129,7 @@ struct ProfileTextFieldOptional: View {
 
     var body: some View {
         HStack {
-            Text("\(label):").bold()
+            Text("\(label):")
             Spacer()
             TextField(label, text: Binding<String>(
                 get: { self.text ?? "" },
@@ -176,5 +168,17 @@ func updateUserInfo(_ updatedUser: User) {
         if let httpResponse = response as? HTTPURLResponse {
             print("Code de statut HTTP de la réponse: \(httpResponse.statusCode)")
         }
+    }
+}
+
+struct InitialsCircleView: View {
+    var initials: String
+    
+    var body: some View {
+        Text(initials)
+            .foregroundColor(.white)
+            .padding()
+            .background(Circle().fill(Color.blue))
+            .font(.title)
     }
 }
