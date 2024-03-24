@@ -3,6 +3,7 @@ import Foundation
 class AvisViewModel: ObservableObject {
     
     @Published var avis: [Avis] = []
+    @Published var avisEnCoursDeModification: Avis?
     
     init(idfestival: Int) {
         fetchAvis(forFestivalId: idfestival)
@@ -25,7 +26,6 @@ class AvisViewModel: ObservableObject {
 
         let body: [String: Any] = [
             "texte": texte,
-            // Use the dateString instead of the Date object
             "date": dateString,
             "iduser": iduser,
             "idfestival": idfestival
@@ -114,8 +114,7 @@ class AvisViewModel: ObservableObject {
             do {
                 let decodedResponse = try decoder.decode(AvisResponse.self, from: data)
                 DispatchQueue.main.async {
-                    // Set the fetched avis to your property
-                    self.avis = decodedResponse.avis
+                    self.avis = decodedResponse.avis.sorted { $0.date > $1.date }
                     print("Avis fetched successfully.")
                     
                 }
@@ -127,11 +126,10 @@ class AvisViewModel: ObservableObject {
 
     
     func getAuthToken() -> String? {
-        print(UserDefaults.standard.string(forKey: "token"))
         return UserDefaults.standard.string(forKey: "token")
     }
     
-    func deleteAvis(idavis: Int) {
+    func deleteAvis(idavis: Int, idfestival : Int) {
         
         guard let url = URL(string: "https://benevole-app-back.onrender.com/avis/delete/\(idavis)") else {
             print("URL is not valid.")
@@ -155,7 +153,7 @@ class AvisViewModel: ObservableObject {
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    print("Error deleting notification: \(error)")
+                    print("Error deleting avis: \(error)")
                     return
                 }
                 
@@ -165,13 +163,15 @@ class AvisViewModel: ObservableObject {
                 }
                 
                 if httpResponse.statusCode == 200 {
-                    print("Notification deleted successfully.")
-                    // Mettez à jour la liste des notifications ou effectuez d'autres actions si nécessaire
+                    print("AVis deleted successfully.")
                     self.objectWillChange.send()
                     
                 } else {
-                    print("Failed to delete notification. Status code: \(httpResponse.statusCode)")
+                    print("Failed to delete avis. Status code: \(httpResponse.statusCode)")
                 }
+                DispatchQueue.main.async {
+                           self.fetchAvis(forFestivalId: idfestival)
+                       }
             }
             
             task.resume()
@@ -180,7 +180,55 @@ class AvisViewModel: ObservableObject {
         }
     }
     
-    
-    
+    func updateAvis(idavis: Int, texte: String, date: Date, idfestival : Int) {
+        guard let url = URL(string: "https://benevole-app-back.onrender.com/avis/\(idavis)") else {
+            print("URL is not valid.")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if let token = getAuthToken() {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            print("Token d'authentification non trouvé.")
+            return
+        }
+        
+        // Convertir la date en chaîne de caractères
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd" // Le format de date doit correspondre à celui attendu par votre API
+        let dateString = dateFormatter.string(from: date)
+        
+        let jsonData = ["texte": texte, "date": dateString] // Utiliser la chaîne de caractères pour la date
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonData, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Failed to serialize JSON body: \(error.localizedDescription)")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error updating avis: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Invalid response received or failed to update avis.")
+                return
+            }
+            
+            print("Avis updated successfully.")
+            DispatchQueue.main.async {
+                       self.fetchAvis(forFestivalId: idfestival)
+                   }
+        }.resume()
+    }
+
 }
 
