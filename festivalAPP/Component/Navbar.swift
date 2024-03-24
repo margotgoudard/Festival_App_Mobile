@@ -18,13 +18,23 @@ struct Navbar: View {
         VStack {
             TabView {
                 NavigationView {
-                    ListeJeuView(festival: festival, viewModel: viewModel2)
+                    FestivalDetailsView(festival: festival)
                 }
                 .tabItem {
-                    Image(systemName: "gamecontroller")
+                    Image(systemName: "document")
                     Text("Jeux")
                 }
                 .tag(2)
+                
+                NavigationView {
+                    PlanningView(festival: festival)
+                }
+                .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Planning")
+                }
+                .tag(6)
+                
                 NavigationView {
                     ListeInscriptionView(festival: festival)
                 }
@@ -33,6 +43,28 @@ struct Navbar: View {
                     Text("Inscription")
                 }
                 .tag(0)
+                
+                NavigationView {
+                    NotificationView(festival: festival,viewModel: viewModel)
+                }
+                .tabItem {
+                    Image(systemName: "bell")
+                    Text("Notification")
+                }
+                .tag(4)
+                .badge(viewModel.countNotifications())
+                
+            
+                
+                NavigationView {
+                    ListeJeuView(festival: festival, viewModel: viewModel2)
+                }
+                .tabItem {
+                    Image(systemName: "gamecontroller")
+                    Text("Jeux")
+                }
+                .tag(2)
+               
                 
                 
                 
@@ -46,26 +78,6 @@ struct Navbar: View {
                 .tag(1)
                 
                 
-                
-                NavigationView {
-                    NotificationView(festival: festival,viewModel: viewModel)
-                }
-                .tabItem {
-                    Image(systemName: "bell")
-                    Text("Notification")
-                }
-                .tag(4)
-                .badge(viewModel.countNotifications())
-                
-                
-                NavigationView {
-                    PlanningView(festival: festival)
-                }
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Planning")
-                }
-                .tag(6)
                 
                 NavigationView {
                     ListeHebergementView(festival: festival)
