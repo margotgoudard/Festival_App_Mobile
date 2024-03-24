@@ -21,8 +21,8 @@ struct Navbar: View {
                     FestivalDetailsView(festival: festival)
                 }
                 .tabItem {
-                    Image(systemName: "document")
-                    Text("Jeux")
+                    Image(systemName: "house.fill")
+                    Text("Accueil")
                 }
                 .tag(2)
                 

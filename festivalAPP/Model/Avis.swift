@@ -1,13 +1,13 @@
 import Foundation
 
-struct Avis: Decodable{
+struct Avis: Decodable, Identifiable, Hashable{
     var id: Int {
             get { idavis }
             set { idavis = newValue }
         }
     var idavis: Int
     var texte: String
-    var date: Date?
+    var date: Date
     var iduser: Int
     var idfestival : Int
 
@@ -19,5 +19,6 @@ struct Avis: Decodable{
         case iduser
         case idfestival
     }
+    
     
 }

@@ -3,7 +3,10 @@ import Foundation
 class AvisViewModel: ObservableObject {
     
     @Published var avis: [Avis] = []
-
+    
+    init(idfestival: Int) {
+        fetchAvis(forFestivalId: idfestival)
+    }
     
     func ajouterAvis(texte: String, idfestival: Int, iduser: Int, date: Date) {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/avis/create") else {
@@ -53,6 +56,15 @@ class AvisViewModel: ObservableObject {
                 print("HTTP Status Code: \(httpResponse.statusCode)")
                 if httpResponse.statusCode == 201 {
                     print("Avis created successfully.")
+                    
+                    // Ajout de l'avis à la liste locale
+                    let newAvis = Avis(idavis: 0, texte: texte, date: date, iduser: iduser, idfestival: idfestival)
+                    
+                    // Émettre un signal pour notifier les vues de la mise à jour
+                    DispatchQueue.main.async {
+                        self.avis.append(newAvis)
+                        self.objectWillChange.send()
+                    }
                 } else {
                     print("Failed to create avis.")
                 }
@@ -92,28 +104,27 @@ class AvisViewModel: ObservableObject {
                 return
             }
             
+            
             let decoder = JSONDecoder()
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
             
             do {
                 let decodedResponse = try decoder.decode(AvisResponse.self, from: data)
-                
-
                 DispatchQueue.main.async {
-                    self.avis=decodedResponse.avis
-                    print(decodedResponse.avis)
-                    print(self.avis)
-
-                    print("Festivals fetched successfully.")
+                    // Set the fetched avis to your property
+                    self.avis = decodedResponse.avis
+                    print("Avis fetched successfully.")
+                    
                 }
             } catch {
                 print("Decoding error: \(error.localizedDescription)")
-                print("Error: \(error)")
             }
         }.resume()
     }
+
     
     func getAuthToken() -> String? {
         print(UserDefaults.standard.string(forKey: "token"))
