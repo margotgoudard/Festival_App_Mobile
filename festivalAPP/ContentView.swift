@@ -8,8 +8,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Image(uiImage: UIImage(named: "logo.png")!) // Assure-toi que l'image existe
-                    .resizable()
+                Image(uiImage: UIImage(named: "logo.png")!)                    .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
                 Text("Festival du Jeu de Montpellier")

@@ -3,4 +3,182 @@
    uuid = "8F9CF8FF-9FC8-4C45-8E3F-BC5F7B0847C8"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8F3C358-C77D-4A53-909A-F44CFE9DF0EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8F3C358-C77D-4A53-909A-F44CFE9DF0EC - 64c439fe19abd6ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FestivalAPP.UserViewModel.fetchUserById(iduser: Swift.Int, completion: (Swift.Optional&lt;FestivalAPP.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FestivalAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/etud/Documents/Festival_App_Mobile/festivalAPP/ModelView/UserModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "751">
+               </Location>
+               <Location
+                  uuid = "B8F3C358-C77D-4A53-909A-F44CFE9DF0EC - 64c439fe19abd6ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FestivalAPP.UserViewModel.fetchUserById(iduser: Swift.Int, completion: (Swift.Optional&lt;FestivalAPP.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FestivalAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/etud/Documents/Festival_App_Mobile/festivalAPP/ModelView/UserModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "960">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "736D48E9-1364-4F76-B2B6-1648FACA8B4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "736D48E9-1364-4F76-B2B6-1648FACA8B4B - 64c439fe19abd531"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FestivalAPP.UserViewModel.fetchUserById(iduser: Swift.Int, completion: (Swift.Optional&lt;FestivalAPP.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FestivalAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/etud/Documents/Festival_App_Mobile/festivalAPP/ModelView/UserModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1738">
+               </Location>
+               <Location
+                  uuid = "736D48E9-1364-4F76-B2B6-1648FACA8B4B - 5de917b19ccede6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FestivalAPP.UserViewModel.fetchUserById(iduser: Swift.Int, completion: (Swift.Optional&lt;FestivalAPP.User&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "FestivalAPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/etud/Documents/Festival_App_Mobile/festivalAPP/ModelView/UserModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "324">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E75DF900-221E-414B-B287-EB3EA8CA6949"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCDDB773-9183-4BA0-85C6-87C627D2D41A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "492B84A5-7779-401B-9A57-BC88C0B92CE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47C154E2-978A-4019-A53B-7FB4B2664C7B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB2EAD89-9F54-4E2E-907F-FA2420A34701"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ModelView/UserModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchUserById(iduser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
