@@ -36,7 +36,7 @@ struct CreateHebergementView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
-            .navigationBarTitle("Nouvel héébergement", displayMode: .inline)
+            .navigationBarTitle("Nouvel hébergement", displayMode: .inline)
 
         }
     }

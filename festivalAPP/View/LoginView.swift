@@ -112,7 +112,13 @@ struct LoginView: View {
                     if loginResponse.auth {
                         UserDefaults.standard.set(loginResponse.token, forKey: "token")
                         UserDefaults.standard.set(loginResponse.user?.iduser, forKey: "iduser")
-
+                        UserDefaults.standard.set(loginResponse.user?.mail,forKey: "mail")
+                        UserDefaults.standard.set(loginResponse.user?.mdp,forKey: "mdp")
+                        UserDefaults.standard.set(loginResponse.user?.nom,forKey: "nom")
+                        UserDefaults.standard.set(loginResponse.user?.prenom,forKey: "prenom")
+                        UserDefaults.standard.set(loginResponse.user?.pseudo,forKey: "pseudo")
+                        UserDefaults.standard.set(loginResponse.user?.taille_tshirt,forKey: "taille_tshirt")
+                        UserDefaults.standard.set(loginResponse.user?.tel,forKey: "tel")
                         userData = loginResponse.user
                         isAuthenticated = true
                         self.userData = loginResponse.user

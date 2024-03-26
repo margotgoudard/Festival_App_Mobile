@@ -28,7 +28,6 @@ class UserViewModel: ObservableObject {
             do {
                 let decoder = JSONDecoder()
                 let jsonString = String(data: data, encoding: .utf8)
-                print(jsonString)
                 
                 let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
                 DispatchQueue.main.async {

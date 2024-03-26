@@ -207,6 +207,7 @@ struct PlanningView: View {
                         let idposte = poste.idposte
                         viewModel.createInscription(idfestival : idfestival, idcreneau : idcreneau, idposte: idposte, iduser: idUser, token: token)
                         estInscrit=true
+                        modifierCapacity()
                         
                     },
                     secondaryButton: .cancel(Text("Annuler"))
@@ -219,7 +220,11 @@ struct PlanningView: View {
     }
     
     
-    
+    private func modifierCapacity() {
+        if let index = viewModel.postescreneaux.firstIndex(where: { $0.id == selectedPoste?.id }) {
+            viewModel.postescreneaux[index].capacite_restante -= 1
+        }
+    }
         
     private func fetchPostesCreneaux() {
         guard !viewModel.creneaux.isEmpty else { return }
