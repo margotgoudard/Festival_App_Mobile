@@ -8,7 +8,6 @@ struct AvisDisplayView: View {
     @State private var showAlert = false
     @ObservedObject var viewModel = UserViewModel()
     @State private var userPseudo: String = ""
-    
 
 
     var body: some View {
@@ -17,7 +16,7 @@ struct AvisDisplayView: View {
                 Text(avis.texte)
                     .font(.headline)
                 
-                Text("Posté par \(viewModel.user?.pseudo ?? "Anonyme") le \(avis.date)")
+                Text("Posté par \(userPseudo) le \(formattedDate)")
                     .font(.caption)
                     .foregroundColor(.gray)
 
@@ -44,11 +43,24 @@ struct AvisDisplayView: View {
                 }
             }
         }.onAppear {
-            self.viewModel.fetchUserById(iduser: avis.iduser)
+            self.viewModel.fetchUserById(iduser: avis.iduser) { result in
+                switch result {
+                case .success(let user):
+                    self.userPseudo = user.pseudo
+                case .failure(let error):
+                    print("Error fetching user: in avis")
+                }
+            }
         }
         .padding(10)
         .background(Color.blue.opacity(0.2))
         .cornerRadius(10)
         .padding(.vertical, 4)
+    }
+    
+    private var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy" // Format de date souhaité
+        return dateFormatter.string(from: avis.date)
     }
 }

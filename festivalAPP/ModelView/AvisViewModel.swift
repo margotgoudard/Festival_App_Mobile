@@ -58,11 +58,13 @@ class AvisViewModel: ObservableObject {
                     print("Avis created successfully.")
                     
                     // Ajout de l'avis à la liste locale
+                    
                     let newAvis = Avis(idavis: 0, texte: texte, date: date, iduser: iduser, idfestival: idfestival)
                     
                     // Émettre un signal pour notifier les vues de la mise à jour
                     DispatchQueue.main.async {
                         self.avis.append(newAvis)
+                        self.avis = self.avis.sorted { $0.date > $1.date }
                         self.objectWillChange.send()
                     }
                 } else {

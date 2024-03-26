@@ -20,6 +20,31 @@ struct InscriptionAnimationJeu: View {
     }
 
     var body: some View {
+      
+        Text("Veuillez sélectionner une zone")
+            .font(.system(size: 20))
+            .fontWeight(.bold)
+            .padding(.top, 20)
+            .padding(.bottom, 20)
+            .multilineTextAlignment(.center)
+        if selectedZone.nom != "nom" {
+            Text("Zone choisie : \(selectedZone.nom)")
+        }
+        Button(action: {
+            showingConfirmationAlert = true
+        }) {
+            if selectedZone.nom != "nom" {
+                VStack(spacing: 10) {
+                    Text("Confirmer")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                        .frame(maxWidth: 200)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
+        }
         
         ScrollView {
             VStack {
@@ -27,25 +52,8 @@ struct InscriptionAnimationJeu: View {
                     ProgressView()
                 } else {
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 16)], spacing: 16) {
-                        Text("Veuillez sélectionner une zone")
-                        if selectedZone.nom != "nom" {
-                            Text("Zone choisie : \(selectedZone.nom)")
-                        }
-                        Button(action: {
-                            showingConfirmationAlert = true
-                        }) {
-                            if selectedZone.nom != "nom" {
-                                VStack(spacing: 10) {
-                                    Text("Confirmer")
-                                        .foregroundColor(.white)
-                                        .font(.headline)
-                                        .padding()
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.blue)
-                                        .cornerRadius(10)
-                                }
-                            }
-                        }
+                        
+                       
              
                         ForEach(Array(viewModel.listeZoneBenevole.keys.sorted()), id: \.self) { cle in
                             VStack(alignment: .leading) {

@@ -27,11 +27,17 @@ struct PlanningView: View {
 
     var body: some View {
         VStack {
+            Text("Planning")
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+                .padding(.top, 10)
+                .padding(.bottom, 10)
+                .multilineTextAlignment(.center)
             if viewModel.isLoading {
                 ProgressView()
             } else {
                 if !viewModel.creneaux.isEmpty {
-                
+                    
                     Picker("Sélectionner une date", selection: $selectedDateIndex) {
                         ForEach(0..<viewModel.datesDistinctes.count, id: \.self) { index in
                             Text(viewModel.datesDistinctes[index])
@@ -47,6 +53,11 @@ struct PlanningView: View {
                    
 
                         Text("Choisir un créneau:")
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .padding(.top, 20)
+                            .padding(.bottom, 10)
+                            .multilineTextAlignment(.center)
                         // Afficher les créneaux horaires filtrés
                         VStack {
                             Picker(selection: $selectedHoraireIndex, label: Text("")) {

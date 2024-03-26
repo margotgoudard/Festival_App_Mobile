@@ -12,6 +12,10 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+                Text("Connexion")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
         
                 TextField("Email", text: $mail)
                     .textFieldStyle(RoundedBorderTextFieldStyle())

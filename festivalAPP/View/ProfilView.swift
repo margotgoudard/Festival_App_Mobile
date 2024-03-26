@@ -32,7 +32,7 @@ struct ProfilView: View {
                } label: {
                    HStack {
                        Text(dropdownTitle)
-                           .foregroundColor(.blue) // Changez ici pour la couleur de texte désirée
+                           .foregroundColor(.blue)
                        Image(systemName: "chevron.down") // Chevron vers le bas
                    }
                    .padding()
@@ -94,6 +94,7 @@ struct ProfilView: View {
                        .foregroundColor(.blue)
                        .background(Color.white)
                        .cornerRadius(10)
+                       .padding(.top, 5)
                }
                
                NavigationLink(destination: ContentView(), isActive: $estDeconnecte) {
@@ -104,6 +105,7 @@ struct ProfilView: View {
                                .foregroundColor(.red)
                                .background(Color.white)
                                .cornerRadius(10)
+                               .padding(.bottom, 5)
                            }
                        }
                        .navigationBarBackButtonHidden(true)

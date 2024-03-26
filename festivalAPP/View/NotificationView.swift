@@ -15,7 +15,12 @@ struct NotificationView: View {
     
     var body: some View {
         VStack {
-            
+            Text("Mes notifications")
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+                .padding(.top, 10)
+                .padding(.bottom, 10)
+                .multilineTextAlignment(.center)
             if viewModel.isLoading {
                 ProgressView()
             }
@@ -45,7 +50,6 @@ struct NotificationView: View {
                 }
             }
         }
-        .navigationTitle("Notifications")
         .navigationBarItems(trailing: EditButton())
         .onAppear {
             viewModel.fetchNotifications(token: token, idUser: idUser, idFestival: festival.id)

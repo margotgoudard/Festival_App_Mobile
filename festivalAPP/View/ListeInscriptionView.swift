@@ -14,10 +14,17 @@ struct ListeInscriptionView: View {
     
     var body: some View {
         VStack {
+            Text("Mes inscriptions")
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+                .padding(.top, 10)
+                .padding(.bottom, 10)
+                .multilineTextAlignment(.center)
             if festival.valide {
                 if viewModel.isLoading {
                     ProgressView()
                 } else if !viewModel.groupedInscriptionsByDayAndTime.isEmpty {
+                    
                     List {
                         ForEach(Array(viewModel.groupedInscriptionsByDayAndTime.keys.sorted()), id: \.self) { day in
                             Section(header: Text(day)) {

@@ -12,6 +12,10 @@ struct InscrireView: View {
 
 
     var body: some View {
+        Text("Inscription")
+            .font(.title)
+            .fontWeight(.bold)
+            .padding(.bottom, 20)
         Form {
             Section(header: Text("Informations personnelles")) {
                 TextField("Nom", text: $user.nom)
@@ -29,15 +33,15 @@ struct InscrireView: View {
                 TextField("Jeu préféré", text: $jeu_prefere)
                 TextField("Taille T-shirt", text: $user.taille_tshirt)
             }
-            
-            Button("S'inscrire") {
-                registerUser()
-            }
-        }
-        .navigationBarTitle("Inscription", displayMode: .inline)
+        }.background(Color.white)
+        .scrollContentBackground(.hidden)
         .alert("Inscription réussie", isPresented: $showAlert) {
                     Button("OK", role: .cancel) { }
                 }
+        Button("S'inscrire") {
+            registerUser()
+        }.buttonStyle(PrimaryButtonStyle())
+            .padding(.bottom, 20)
     }
     
     func registerUser() {

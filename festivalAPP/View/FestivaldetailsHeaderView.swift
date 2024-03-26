@@ -9,11 +9,12 @@ struct FestivalDetailsHeaderView: View {
     let facebookURL = URL(string: "https://fr-fr.facebook.com/festivaldujeudemontpellier/")!
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .center, spacing: 8) {
             Text(festival.nom)
                 .font(.title.bold())
                 .foregroundColor(Color.primary)
                 .padding(.vertical, 5)
+                .multilineTextAlignment(.center)
             
             HStack {
                 Image(systemName: "calendar")
