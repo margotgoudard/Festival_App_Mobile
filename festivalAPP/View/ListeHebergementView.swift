@@ -15,6 +15,11 @@ struct ListeHebergementView: View {
     var body: some View {
             VStack {
                 Text("Liste des hébergements")
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+                    .padding(.top, 10)
+                    .padding(.bottom, 10)
+                    .multilineTextAlignment(.center)
                 Picker("Vue", selection: $selectedView) {
                     Text("Tous les hébergements").tag("Tous les hébergements")
                     Text("Mes hébergements").tag("Mes hébergements")
@@ -25,31 +30,34 @@ struct ListeHebergementView: View {
                     if selectedView == "Tous les hébergements" {
                         List {
                             ForEach(viewModel.hebergements, id: \.id) { hebergement in
-                                VStack{
+                                VStack(alignment: .leading){
                                     HStack(alignment: .top) {
                                         Image(systemName: "house.fill")
                                             .resizable()
                                             .frame(width: 50, height: 50)
                                             .foregroundColor(.blue)
-                                        
+                                            .padding(.trailing, 10)
+
                                         VStack(alignment: .leading, spacing: 8) {
                                             HStack {
                                                 Image(systemName: "person.circle")
                                                     .resizable()
                                                     .frame(width: 15, height: 15)
                                                     .foregroundColor(.gray)
+                                        
                                                 Text(hebergement.User.nom)
                                                     .foregroundColor(.gray)
                                             }
                                             HStack {
-                                                Image(systemName: "pfcenterhone")
+                                                Image(systemName: "phone")
                                                     .resizable()
                                                     .frame(width: 15, height: 15)
                                                     .foregroundColor(.gray)
+                                                   
                                                 Text(hebergement.User.tel)
                                                     .foregroundColor(.gray)
                                             }
-                                        } .alignmentGuide(.leading) { _ in 0 } 
+                                        }
                                         
                                         
                                     }
