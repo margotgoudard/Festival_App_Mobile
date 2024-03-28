@@ -188,7 +188,7 @@ class PlanningViewModel: ObservableObject {
     
     func createInscriptionZone(idzonebenevole:Int, idfestival : Int, idcreneau : Int, idposte: Int, iduser: Int, token: String){
         
-        guard let url = URL(string: "https://benevole-app-back.onrender.com/inscription/create2") else {
+        guard let url = URL(string: "https://benevole-app-back.onrender.com/inscription/create3") else {
             print("URL is not valid.")
             return
         }
