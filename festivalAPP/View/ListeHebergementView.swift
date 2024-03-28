@@ -20,13 +20,14 @@ struct ListeHebergementView: View {
                     .padding(.top, 10)
                     .padding(.bottom, 10)
                     .multilineTextAlignment(.center)
+                if festival.valide {
                 Picker("Vue", selection: $selectedView) {
                     Text("Tous les hébergements").tag("Tous les hébergements")
                     Text("Mes hébergements").tag("Mes hébergements")
                 }
                 .pickerStyle(SegmentedPickerStyle())
 
-                if festival.valide {
+              
                     if selectedView == "Tous les hébergements" {
                         List {
                             ForEach(viewModel.hebergements, id: \.id) { hebergement in
@@ -76,7 +77,7 @@ struct ListeHebergementView: View {
                                     }.padding(.bottom,10)
                                 }
                                 .padding(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)) // Ajout de padding autour du VStack
-                                .frame(maxWidth: .infinity, alignment: .leading) 
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                     .background(Color(UIColor.systemGray6))
                                     .cornerRadius(10)
                                     .overlay(

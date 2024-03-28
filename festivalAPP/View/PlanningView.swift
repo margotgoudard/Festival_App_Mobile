@@ -27,12 +27,14 @@ struct PlanningView: View {
 
     var body: some View {
         VStack {
+        
             Text("Planning")
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .padding(.top, 10)
                 .padding(.bottom, 10)
                 .multilineTextAlignment(.center)
+            if (festival.valide) {
             if viewModel.isLoading {
                 ProgressView()
             } else {
@@ -184,6 +186,13 @@ struct PlanningView: View {
                     Text("Aucun créneau disponible")
                 }
             }
+        } else {
+            VStack {
+                Text("PAS OUVERT")
+            }.onAppear {
+                print("test")
+            }
+        }
         }
         .padding()
         .onAppear {

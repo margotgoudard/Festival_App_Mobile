@@ -20,12 +20,21 @@ struct FestivalDetailsView: View {
             
             Divider()
             
+            if (festival.valide ){
+            
             FestivalAvisEditorView(avis: $avis) {
                 avisViewModel.ajouterAvis(texte: avis, idfestival: festival.id, iduser: idUser, date: Date())
                 avis = ""
             }
             
             FestivalAvisListView(festival: festival, avisViewModel: avisViewModel, idUser: idUser, idAvisEnEdition: $idAvisEnEdition, texteAvisEnEdition: $texteAvisEnEdition)
+        } else {
+            VStack {
+                Text("PAS OUVERT")
+            }.onAppear {
+                print("test")
+            }
+        }
         }
         .onAppear {
             avisViewModel.fetchAvis(forFestivalId: festival.id)

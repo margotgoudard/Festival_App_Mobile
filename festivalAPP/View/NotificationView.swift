@@ -21,6 +21,7 @@ struct NotificationView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 10)
                 .multilineTextAlignment(.center)
+            if (festival.valide) {
             if viewModel.isLoading {
                 ProgressView()
             }
@@ -49,6 +50,13 @@ struct NotificationView: View {
                     }
                 }
             }
+        } else {
+            VStack {
+                Text("PAS OUVERT")
+            }.onAppear {
+                print("test")
+            }
+        }
         }
         .navigationBarItems(trailing: EditButton())
         .onAppear {
