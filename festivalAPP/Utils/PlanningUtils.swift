@@ -1,10 +1,3 @@
-//
-//  PlanningUtils.swift
-//  FestivalAPP
-//
-//  Created by etud on 19/03/2024.
-//
-
 import Foundation
 
 class PlanningUtils: ObservableObject {
@@ -97,9 +90,8 @@ class PlanningUtils: ObservableObject {
                 
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(jsonObject) // This will print the whole JSON response as is.
+                    print(jsonObject)
                     
-                    // If you want to pretty print the JSON:
                     let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
                     if let jsonString = String(data: jsonData, encoding: .utf8) {
                         print(jsonString)
@@ -180,7 +172,6 @@ class PlanningUtils: ObservableObject {
     }
 
         
-        // Fonction appelée lorsque l'utilisateur coche le checkbox
     static func check(idcreneau: Int, iduser: Int, token: String, completion: @escaping (Bool) -> Void)  {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/flexible/create") else {
             print("URL is not valid.")
@@ -234,7 +225,7 @@ class PlanningUtils: ObservableObject {
    
         }
         
-        // Fonction appelée lorsque l'utilisateur décoche le checkbox
+      
     static func uncheck(idcreneau: Int, iduser: Int, token: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/flexible/delete") else {
             print("URL is not valid.")

@@ -63,7 +63,7 @@ class PosteViewModel: ObservableObject {
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type") // Specify the content type as JSON
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         if let token = getAuthToken() {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -72,7 +72,6 @@ class PosteViewModel: ObservableObject {
             return
         }
 
-        // Prepare the body content
         let bodyContent = ["idposte": posteId, "idfestival": festivalId]
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: bodyContent, options: [])

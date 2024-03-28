@@ -16,7 +16,7 @@ class PlanningViewModel: ObservableObject {
     
     
     var datesDistinctes: [String] {
-            // Utilisez un ensemble pour stocker les dates uniques
+          
             var datesSet = Set<String>()
             
             // Parcourir les créneaux pour extraire les dates
@@ -24,7 +24,6 @@ class PlanningViewModel: ObservableObject {
                 datesSet.insert(creneau.jour)
             }
             
-            // Convertir l'ensemble en tableau et trier les dates
             let dates = Array(datesSet).sorted()
             return dates
         }
@@ -173,9 +172,7 @@ class PlanningViewModel: ObservableObject {
                 
                 if httpResponse.statusCode == 200 {
                     print("Inscription created successfully.")
-                    // Mettez à jour la liste des notifications ou effectuez d'autres actions si nécessaire
-                    
-                    
+                   
                     
                 } else {
                     print("Failed to create inscription. Status code: \(httpResponse.statusCode)")

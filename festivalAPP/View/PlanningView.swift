@@ -147,9 +147,8 @@ struct PlanningView: View {
                                 }
                                 .disabled(isChecked || estInscrit )
                                 .sheet(isPresented: $showModal) {
-                                            // Vue modale à afficher lorsque le bouton est cliqué
+                                           
                                     InscriptionAnimationJeu(festival: festival, creneau : creneauxPourDate[selectedHoraireIndex]){ success in
-                                        // Traitement en fonction de la valeur retournée (success)
                                         if success {
                                             self.estInscrit = true
                                         } 
@@ -192,12 +191,11 @@ struct PlanningView: View {
             self.viewModel.fetchCreneauxListe(token: token, idFestival: festival.id)
             self.viewModel.fetchPostesCreneauxListe(token: token, idFestival: festival.id)
         }
-        // Affichez la pop-up si showingConfirmationAlert est vrai
+     
         .alert(isPresented: $showingConfirmationAlert) {
-            // Créez une alerte de confirmation avec les options Oui et Annuler
-            // Utilisez la désagrégation facultative pour extraire la valeur de selectedPoste
+         
             if let poste = selectedPoste {
-                // Créez une alerte de confirmation avec les options Oui et Annuler
+                
                 return Alert(
                     title: Text("Confirmation"),
                     message: Text("Êtes-vous sûr de vouloir sélectionner ce poste ?"),
@@ -213,7 +211,7 @@ struct PlanningView: View {
                     secondaryButton: .cancel(Text("Annuler"))
                 )
             } else {
-                // Si selectedPoste est nil, affichez une alerte vide
+              
                 return Alert(title: Text("Erreur"), message: Text("Poste non trouvé"), dismissButton: .cancel())
             }
         }

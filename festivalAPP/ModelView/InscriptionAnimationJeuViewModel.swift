@@ -4,7 +4,7 @@ import SwiftUI
 class InscriptionAnimationJeuViewModel: ObservableObject {
     @Published var listeZoneBenevole: [String: [EspaceAvecPosteCreneau]] = [:]
     @Published var isLoading = true
-    @Published var selectedZone: EspaceAvecPosteCreneau? // Add this line
+    @Published var selectedZone: EspaceAvecPosteCreneau? 
 
     func fetchListeZoneBenevole(festival: Festival, creneau: Creneau) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
@@ -27,7 +27,7 @@ class InscriptionAnimationJeuViewModel: ObservableObject {
                         listeZoneBenevoleTemps[espace.nom] = filteredSubspace
                     }
                     count += 1
-                    // Verify all requests are finished before sorting and assigning listeZoneBenevole
+                   
                     if count == liste.count {
                         let sortedKeys = listeZoneBenevoleTemps.keys.sorted()
                         for key in sortedKeys {
@@ -36,7 +36,7 @@ class InscriptionAnimationJeuViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.listeZoneBenevole = sortedTemp
                             self.isLoading = false
-                            // Initialize selectedZone with the first subzone of the first zone, if available
+                           
                             if let firstZoneKey = self.listeZoneBenevole.keys.sorted().first,
                                let firstSubZone = self.listeZoneBenevole[firstZoneKey]?.first {
                                 self.selectedZone = firstSubZone

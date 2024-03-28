@@ -1,12 +1,11 @@
 import Foundation
 
 class UserViewModel: ObservableObject {
-    @Published var user: User? // Updated to hold a single user
+    @Published var user: User?
     enum FetchUserResult {
         case success(User)
         case failure(Error)
     }
-    // Function now accepts a completion handler
     func fetchUserById(iduser: Int,completion: @escaping (FetchUserResult) -> Void) {
         guard let url = URL(string: "https://benevole-app-back.onrender.com/user/get-user-by-id/\(iduser)") else {
             print("URL is not valid.")

@@ -1,10 +1,3 @@
-//
-//  FlexibleUserCreneau.swift
-//  FestivalAPP
-//
-//  Created by etud on 18/03/2024.
-//
-
 import Foundation
 import SwiftUI
 

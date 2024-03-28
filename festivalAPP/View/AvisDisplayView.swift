@@ -60,7 +60,7 @@ struct AvisDisplayView: View {
     
     private var formattedDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy" // Format de date souhaité
+        dateFormatter.dateFormat = "dd/MM/yyyy" 
         return dateFormatter.string(from: avis.date)
     }
 }

@@ -33,10 +33,10 @@ struct FestivalDetailsHeaderView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.blue) // Apply if you want color overlay
+                        .foregroundColor(.blue)
                 }
                 Spacer()
-                // Twitter button
+              
                 Link(destination: twitterURL) {
                     Image(uiImage: UIImage(named: "X.png")!)
                         .resizable()
@@ -45,7 +45,6 @@ struct FestivalDetailsHeaderView: View {
                         .foregroundColor(.blue)
                 }
                 Spacer()
-                // Facebook button
                 Link(destination: facebookURL) {
                     Image(uiImage: UIImage(named: "facebook.png")!)
                         .resizable()

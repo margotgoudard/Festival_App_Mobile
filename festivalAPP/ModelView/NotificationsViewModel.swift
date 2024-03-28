@@ -1,11 +1,3 @@
-//
-//  NotificationsModelView.swift
-//  FestivalAPP
-//
-//  Created by etud on 14/03/2024.
-//
-
-
 import Foundation
 
 class NotificationsViewModel: ObservableObject {
@@ -72,7 +64,6 @@ class NotificationsViewModel: ObservableObject {
             return
         }
         
-        // Création des données JSON
         let jsonData = ["idnotification": idnotif]
         
         do {
@@ -97,7 +88,7 @@ class NotificationsViewModel: ObservableObject {
                 
                 if httpResponse.statusCode == 200 {
                     print("Notification deleted successfully.")
-                    // Mettez à jour la liste des notifications ou effectuez d'autres actions si nécessaire
+                
                     self.notifications.remove(atOffsets: index)
                     self.objectWillChange.send()
                     

@@ -3,7 +3,7 @@ import SwiftUI
 struct ListeJeuView: View {
     @ObservedObject private var viewModel: JeuViewModel
     var festival: Festival
-    // Ajouter un @State pour gérer l'espace sélectionné
+    
     @State private var selectedEspace: Espace?
 
     init(festival: Festival, viewModel: JeuViewModel) {

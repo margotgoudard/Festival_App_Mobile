@@ -5,7 +5,7 @@ struct ListeHebergementView: View {
     var festival: Festival
     var userId: Int = UserDefaults.standard.integer(forKey: "iduser")
     @State private var showingCreateHebergement = false
-    @State private var selectedView = "Tous les hébergements" // There was a syntax error here with an extra '-' at the end, which I removed
+    @State private var selectedView = "Tous les hébergements"
 
     init(festival: Festival){
         self.festival = festival
@@ -76,12 +76,12 @@ struct ListeHebergementView: View {
                                     }.padding(.bottom,10)
                                 }
                                 .padding(EdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)) // Ajout de padding autour du VStack
-                                .frame(maxWidth: .infinity, alignment: .leading) // Fixer la largeur et centrer les éléments à gauche
-                                    .background(Color(UIColor.systemGray6)) // Ajout d'un fond pour le VStack
-                                    .cornerRadius(10) // Coins arrondis
+                                .frame(maxWidth: .infinity, alignment: .leading) 
+                                    .background(Color(UIColor.systemGray6))
+                                    .cornerRadius(10)
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.gray, lineWidth: 1) // Ajout de la bordure avec la couleur et l'épaisseur souhaitées
+                                            .stroke(Color.gray, lineWidth: 1) 
                                     )
                             }
 

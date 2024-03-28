@@ -21,7 +21,7 @@ struct CreateHebergementView: View {
                 }
                 
                 Button(action: {
-                    // Your button action for creating hebergement
+                   
                     if let nbPlacesInt = Int(nbPlaces), let distanceInt = Int(distance) {
                         let user = User(iduser: UserDefaults.standard.integer(forKey: "iduser"), mail: UserDefaults.standard.string(forKey: "mail")!, mdp: UserDefaults.standard.string(forKey: "mdp")!, nom: UserDefaults.standard.string(forKey: "nom")!, prenom: UserDefaults.standard.string(forKey: "prenom")!, pseudo: UserDefaults.standard.string(forKey: "pseudo")!, taille_tshirt: UserDefaults.standard.string(forKey: "taille_tshirt")!, tel: UserDefaults.standard.string(forKey: "tel")!)
                         let newHebergement = Hebergement(id: 0, nb_places: nbPlacesInt, distance: distanceInt, user: user, idfestival: idfestival, description: description)

@@ -19,9 +19,9 @@ class AvisViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        // Create a DateFormatter to convert the Date to a String
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Adjust the format as needed
+        dateFormatter.dateFormat = "yyyy-MM-dd" 
         let dateString = dateFormatter.string(from: date)
 
         let body: [String: Any] = [
@@ -57,11 +57,9 @@ class AvisViewModel: ObservableObject {
                 if httpResponse.statusCode == 201 {
                     print("Avis created successfully.")
                     
-                    // Ajout de l'avis à la liste locale
-                    
+        
                     let newAvis = Avis(idavis: 0, texte: texte, date: date, iduser: iduser, idfestival: idfestival)
-                    
-                    // Émettre un signal pour notifier les vues de la mise à jour
+                  
                     DispatchQueue.main.async {
                         self.avis.append(newAvis)
                         self.avis = self.avis.sorted { $0.date > $1.date }
@@ -72,7 +70,7 @@ class AvisViewModel: ObservableObject {
                 }
             }
 
-            // Debugging purpose: print the response data
+            
             if let responseBody = String(data: data, encoding: .utf8) {
                 print(responseBody)
             }
@@ -199,12 +197,12 @@ class AvisViewModel: ObservableObject {
             return
         }
         
-        // Convertir la date en chaîne de caractères
+    
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Le format de date doit correspondre à celui attendu par votre API
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
         
-        let jsonData = ["texte": texte, "date": dateString] // Utiliser la chaîne de caractères pour la date
+        let jsonData = ["texte": texte, "date": dateString]
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonData, options: [])

@@ -1,6 +1,6 @@
 import SwiftUI
 
-// Assuming User and Festival models are defined elsewhere
+
 struct ProfilView: View {
     @State private var user: User
     @ObservedObject private var festivalUtils: FestivalUtils
@@ -24,16 +24,18 @@ struct ProfilView: View {
            VStack {
                Menu {
                    ForEach(festivalUtils.festivals) { festival in
-                       Button(festival.nom) {
+                       Button("\(festival.nom) \(String(festival.annee))") {
                            selectedFestivalForDetails = festival
-                           dropdownTitle = festival.nom
+                           dropdownTitle = "\(festival.nom) \(String(festival.annee))"
                        }
+
+
                    }
                } label: {
                    HStack {
                        Text(dropdownTitle)
                            .foregroundColor(.blue)
-                       Image(systemName: "chevron.down") // Chevron vers le bas
+                       Image(systemName: "chevron.down")
                    }
                    .padding()
                    .frame(maxWidth: .infinity)

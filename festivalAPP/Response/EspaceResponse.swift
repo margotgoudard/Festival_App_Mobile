@@ -1,10 +1,3 @@
-//
-//  EspaceResponse.swift
-//  FestivalAPP
-//
-//  Created by etud on 20/03/2024.
-//
-
 import Foundation
 struct EspaceSimpleResponse: Codable {
     let espaces : [Espace]

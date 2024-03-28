@@ -31,10 +31,10 @@ struct ContentView: View {
                 Text("Se connecter")
             })
             .fullScreenCover(isPresented: $isLoggingIn) {
-                LoginView() // Ici, tu insères ta vue de connexion
+                LoginView()
             }
         }
-        .navigationBarHidden(true) // Masque toute la barre de navigation
-        .navigationBarBackButtonHidden(true) // Masque spécifiquement le bouton de retour
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true) 
     }
 }
